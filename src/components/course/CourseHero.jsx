@@ -8,7 +8,7 @@ export default function CourseHero({ course }) {
     const y2 = useTransform(scrollY, [0, 500], [0, -150]);
 
     return (
-        <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#0a0a0f]">
+        <section className="relative min-h-screen flex items-center pt-40 pb-32 overflow-hidden bg-[#0a0a0f]">
             {/* Animated Gradient Background Mesh */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <div className="absolute top-[-20%] left-[-10%] w-[1000px] h-[1000px] bg-[radial-gradient(circle_at_center,rgba(0,255,136,0.08),transparent_70%)] blur-[100px] animate-pulse-slow" />

@@ -4,7 +4,7 @@ import { Check, Layers, ArrowRight, Database, Bot, Cloud, Terminal, Image, Workf
 
 export function MasterySection({ skills, tools }) {
     return (
-        <section className="py-24 bg-[#0a0a0f]">
+        <section className="py-32 bg-[#0a0a0f]">
             <div className="max-w-[1200px] mx-auto px-6 space-y-24">
 
                 {/* Part A: Skills */}
@@ -60,7 +60,7 @@ export function MasterySection({ skills, tools }) {
 
 export function ArtifactsShowcase({ projects }) {
     return (
-        <section className="py-32 relative overflow-hidden">
+        <section className="py-40 relative overflow-hidden">
             <div className="absolute inset-0 bg-[#0a0a0f]" />
             <div className="max-w-[1200px] mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">

@@ -6,7 +6,7 @@ export function AudienceSection({ audience }) {
     const icons = [Users, Briefcase, Rocket];
 
     return (
-        <section className="py-24 relative z-10">
+        <section className="py-32 relative z-10">
             <div className="max-w-[1200px] mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Transform Your Career</h2>
@@ -42,12 +42,12 @@ export function CurriculumTimeline({ structure }) {
     const [expanded, setExpanded] = useState(0);
 
     return (
-        <section className="py-32 bg-[#0a0a0f] relative overflow-hidden">
+        <section className="py-40 bg-[#0a0a0f] relative overflow-hidden">
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
 
             <div className="max-w-[1000px] mx-auto px-6 relative z-10">
-                <div className="text-center mb-20">
+                <div className="text-center mb-24">
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Curriculum Timeline</h2>
                     <p className="text-gray-400 text-lg">Structured for speed and depth.</p>
                 </div>

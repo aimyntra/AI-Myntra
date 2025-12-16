@@ -36,7 +36,7 @@ export default function CourseDetail() {
             <ArtifactsShowcase projects={course.projects} />
 
             {/* Outcomes & Certification (Inline for now) */}
-            <section className="py-24 bg-[#0a0a0f] border-t border-white/5">
+            <section className="py-32 bg-[#0a0a0f] border-t border-white/5">
                 <div className="max-w-[1200px] mx-auto px-6">
                     <div className="grid md:grid-cols-3 gap-12 text-center">
                         <div className="flex flex-col items-center gap-4">
@@ -71,7 +71,7 @@ export default function CourseDetail() {
             </section>
 
             {/* Final CTA */}
-            <section className="py-32 relative overflow-hidden">
+            <section className="py-40 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-t from-[#00ff88]/10 to-transparent pointer-events-none" />
                 <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
                     <motion.div
