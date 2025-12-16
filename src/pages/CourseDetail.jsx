@@ -3,7 +3,7 @@ import { useParams, Navigate } from 'react-router-dom';
 import { courses } from '../data/courses';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import { Calendar, Clock, Monitor, CheckCircle, Zap, Users, BookOpen, Layers, Terminal, ChevronRight, Award } from 'lucide-react';
+import { Calendar, Clock, Monitor, CheckCircle, Zap, Users, Layers, ChevronRight, Award } from 'lucide-react';
 
 export default function CourseDetail() {
     const { slug } = useParams();
@@ -21,7 +21,8 @@ export default function CourseDetail() {
         <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-[#a3ff12] selection:text-black">
             <Navbar />
 
-            <main className="max-w-[1100px] mx-auto px-6 pt-32 pb-24 space-y-24">
+            {/* Added extra top padding (pt-48) to prevent header clutter */}
+            <main className="max-w-[1100px] mx-auto px-6 pt-48 pb-24 space-y-24">
 
                 {/* 1. HERO COURSE CARD */}
                 <section className="bg-[#121212] border border-white/5 rounded-3xl p-8 md:p-12 relative overflow-hidden group">
@@ -121,7 +122,38 @@ export default function CourseDetail() {
                     </div>
                 </section>
 
-                {/* 4. TOOLS STACK (Group Cards) */}
+                {/* 4. CURRICULUM GRID (New Card Grid Style) */}
+                <section>
+                    <div className="flex items-center gap-4 mb-12">
+                        <div className="h-px bg-white/10 flex-1"></div>
+                        <h2 className="text-sm font-mono text-gray-500 uppercase tracking-widest">Curriculum Details</h2>
+                        <div className="h-px bg-white/10 flex-1"></div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                        {course.structure.map((module, idx) => (
+                            <div key={idx} className="bg-[#121212] border border-white/5 p-8 rounded-2xl hover:border-white/10 transition-colors flex flex-col">
+                                <span className="text-[#a3ff12] font-mono text-xs uppercase tracking-wider block mb-3">
+                                    {module.title}
+                                </span>
+                                <h3 className="text-xl font-bold text-white mb-6 leading-tight">
+                                    {module.focus}
+                                </h3>
+
+                                <div className="space-y-3 mt-auto">
+                                    {module.outcomes.map((outcome, i) => (
+                                        <div key={i} className="flex items-start gap-3 text-sm text-gray-400">
+                                            <div className="w-1.5 h-1.5 bg-white/10 rounded-full mt-1.5 flex-shrink-0"></div>
+                                            <span className="leading-relaxed">{outcome}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* 5. TOOLS STACK */}
                 <section>
                     <div className="bg-[#121212] border border-white/5 rounded-3xl p-8 md:p-12">
                         <h2 className="text-2xl font-bold mb-10">Production Stack</h2>
@@ -147,42 +179,7 @@ export default function CourseDetail() {
                     </div>
                 </section>
 
-                {/* 5. CURRICULUM TIMELINE (Vertical Cards) */}
-                <section className="max-w-4xl mx-auto">
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold mb-4">Curriculum Timeline</h2>
-                        <p className="text-gray-400">Structured for speed and depth.</p>
-                    </div>
-
-                    <div className="space-y-6 relative pl-8 border-l border-white/10 ml-4 md:ml-0 md:pl-0 md:border-l-0">
-                        {course.structure.map((module, idx) => (
-                            <div key={idx} className="relative md:pl-12 group">
-                                {/* Connecting Line & Dot (Desktop) */}
-                                <div className="hidden md:block absolute left-0 top-0 bottom-0 w-px bg-white/10 group-last:bottom-auto group-last:h-1/2"></div>
-                                <div className="hidden md:flex absolute left-[-6px] top-8 w-3 h-3 bg-[#121212] border border-[#a3ff12] rounded-full z-10"></div>
-
-                                <div className="bg-[#121212] border border-white/5 p-8 rounded-2xl flex flex-col md:flex-row gap-8 hover:border-white/10 transition-colors">
-                                    <div className="md:w-1/4 flex-shrink-0">
-                                        <span className="text-[#a3ff12] font-mono text-xs uppercase tracking-wider block mb-2">{module.title}</span>
-                                        <h3 className="text-xl font-bold text-white leading-tight">{module.focus}</h3>
-                                    </div>
-                                    <div className="md:w-3/4 border-t border-white/5 pt-6 md:pt-0 md:border-t-0 md:border-l md:pl-8">
-                                        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
-                                            {module.outcomes.map((outcome, i) => (
-                                                <div key={i} className="flex items-start gap-2 text-sm text-gray-400">
-                                                    <CheckCircle size={14} className="mt-0.5 text-gray-600 group-hover:text-[#a3ff12] transition-colors" />
-                                                    {outcome}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* 6. PROJECTS (Showcase Cards) */}
+                {/* 6. PROJECTS */}
                 <section>
                     <div className="flex items-center gap-4 mb-8">
                         <div className="h-px bg-white/10 flex-1"></div>
@@ -210,20 +207,7 @@ export default function CourseDetail() {
                     </div>
                 </section>
 
-                {/* 7. OUTCOMES (Checklist Card) */}
-                <section className="bg-[#121212] border border-white/5 rounded-3xl p-8 md:p-12 text-center">
-                    <h2 className="text-2xl font-bold mb-8">Learning Outcomes</h2>
-                    <div className="flex flex-wrap justify-center gap-4">
-                        {course.outcomes.map((outcome, idx) => (
-                            <div key={idx} className="bg-white/[0.03] border border-white/5 px-5 py-3 rounded-full text-sm text-gray-300 flex items-center gap-2">
-                                <CheckCircle size={14} className="text-[#a3ff12]" />
-                                {outcome}
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* 8. FORMAT & CERTIFICATION */}
+                {/* 7. FORMAT & CERTIFICATION */}
                 <section className="grid md:grid-cols-3 gap-6">
                     <div className="bg-[#121212] border border-white/5 p-6 rounded-2xl text-center">
                         <div className="text-[10px] uppercase text-gray-500 font-bold tracking-wider mb-2">Certification</div>
@@ -242,7 +226,7 @@ export default function CourseDetail() {
                     </div>
                 </section>
 
-                {/* 9. CTA CARD */}
+                {/* 8. CTA CARD */}
                 <section className="bg-gradient-to-b from-[#121212] to-[#0a0a0a] border border-white/5 rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
                     <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-[0.05]"></div>
                     <div className="relative z-10 max-w-2xl mx-auto">
