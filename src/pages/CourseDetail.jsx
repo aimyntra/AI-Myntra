@@ -21,8 +21,8 @@ export default function CourseDetail() {
         <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-[#a3ff12] selection:text-black">
             <Navbar />
 
-            {/* Added extra top padding (pt-48) to prevent header clutter */}
-            <main className="max-w-[1100px] mx-auto px-6 pt-48 pb-24 space-y-24">
+            {/* Added extra top padding (pt-64) to prevent header clutter */}
+            <main className="max-w-[1100px] mx-auto px-6 pt-64 pb-24 space-y-24">
 
                 {/* 1. HERO COURSE CARD */}
                 <section className="bg-[#121212] border border-white/5 rounded-3xl p-8 md:p-12 relative overflow-hidden group">
