@@ -1,0 +1,130 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Global Theme - Enterprise Minimalist */
+@theme {
+  --color-primary: var(--primary);
+  --color-bg-color: var(--bg-color);
+  --color-bg-card: var(--bg-card);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+:root {
+  /* Colors - Calm & Confident */
+  --bg-color: #050505;
+  /* Deep Charcoal */
+  --bg-card: #0A0A0A;
+  /* Slightly lighter for cards (if needed) */
+  --bg-card-hover: #111111;
+
+  --primary: #39FF14;
+  /* Uses strictly for CTAs/Highlights */
+  --primary-dim: #2cb810;
+
+  --text-main: #FFFFFF;
+  --text-muted: #888888;
+  /* Calm gray */
+  --text-dim: #555555;
+
+  --border-color: #1A1A1A;
+  /* Very subtle */
+
+  /* Layout & Spacing Rules */
+  --radius: 14px;
+  /* Strict 14px radius */
+  --container-width: 1200px;
+  --section-spacing-desktop: 96px;
+  --section-spacing-mobile: 64px;
+  --card-padding: 24px;
+  --card-gap: 24px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Utilities */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.text-gradient-green {
+  background: linear-gradient(135deg, var(--primary) 0%, #2cb810 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* CARDS - PRESET: Minimalist, No Border Default */
+.minimal-card {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  transition: all 0.4s ease;
+}
+
+.minimal-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-color);
+  transform: translateY(-4px);
+}
+
+/* Selected/Active Card */
+.active-card {
+  background: var(--bg-card-hover);
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 30px rgba(57, 255, 20, 0.1);
+}
+
+/* Legacy Support (Cleaning up) */
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
