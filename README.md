@@ -1,16 +1,44 @@
-# React + Vite
+# AI Myntra - Enterprise AI Education Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, high-performance website for **AI Myntra**, an AI education and consulting company. Designed with a strict "Enterprise Minimalist" aesthetic (similar to Linear/Vercel) to convey trust, authority, and deep technical expertise.
 
-Currently, two official plugins are available:
+## 🚀 **Tech Stack**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **Frontend Framework**: React + Vite (Fast, modern build tool)
+-   **Styling**: Tailwind CSS v4 (Utility-first, performance-focused)
+-   **Icons**: Lucide React (Clean, consistent iconography)
+-   **Deployment**: Ready for Vercel/Netlify
 
-## React Compiler
+## 🎨 **Design Philosophy**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+-   **Minimalist & Disciplined**: Fewer borders, calm spacing (96px sections), consistent 14px radius.
+-   **Dark Mode Native**: Deep charcoal/black backgrounds with subtle neon green accents strictly for conversion.
+-   **No UI Clutter**: Removed heavy cards and noisy borders. Content is king.
 
-## Expanding the ESLint configuration
+## 🛠️ **Installation & Setup**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/aimyntra/AI-Myntra.git
+    cd AI-Myntra
+    ```
+
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+3.  **Run Development Server**:
+    ```bash
+    npm run dev
+    ```
+
+## 📂 **Project Structure**
+
+-   `/src/components`: Reusable UI components (Hero, Programs, Testimonials, etc.)
+-   `/src/index.css`: Global design system variables (Radius, Colors, Animations).
+-   `vite.config.js`: Configuration for the Vite build tool.
+
+---
+
+**Built by [AI Myntra Team]**
