@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Zap, ArrowRight, Star } from 'lucide-react';
 import Button from './ui/Button';
 
@@ -35,9 +36,11 @@ export default function Bootcamps() {
                                 <span>Cohort Based</span>
                             </div>
 
-                            <Button variant="primary" className="w-full md:w-auto px-8">
-                                Join Bootcamp <ArrowRight size={18} />
-                            </Button>
+                            <Link to="/programs/ai-builder-bootcamp">
+                                <Button variant="primary" className="w-full md:w-auto px-8">
+                                    Join Bootcamp <ArrowRight size={18} />
+                                </Button>
+                            </Link>
                         </div>
 
                         <div className="relative">

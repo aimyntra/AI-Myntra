@@ -1,17 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Check, ArrowRight, Clock, BarChart, Sparkles } from 'lucide-react';
 import Button from './Button';
 
-export default function ProgramCard({
-  title,
-  duration,
-  level,
-  description,
-  tools,
-  outcome,
-  cta,
-  highlight = false
-}) {
+export default function ProgramCard(props) {
+  const {
+    title,
+    duration,
+    level,
+    description,
+    tools,
+    outcome,
+    cta,
+    highlight = false,
+    slug
+  } = props;
   return (
     <div className={`
       relative p-6 rounded-[14px] transition-all duration-300 flex flex-col h-full border
@@ -52,12 +55,25 @@ export default function ProgramCard({
       </div>
 
       <div className="mt-auto">
-        <Button
-          variant={highlight ? 'primary' : 'outline'}
-          className={`w-full !justify-center !py-3 !text-sm ${!highlight && '!border-white/10 !text-white hover:!bg-white hover:!text-black'}`}
-        >
-          {cta}
-        </Button>
+        <div className="mt-auto">
+          {slug ? (
+            <Link to={`/programs/${slug}`} className="w-full">
+              <Button
+                variant={highlight ? 'primary' : 'outline'}
+                className={`w-full !justify-center !py-3 !text-sm ${!highlight && '!border-white/10 !text-white hover:!bg-white hover:!text-black'}`}
+              >
+                {cta}
+              </Button>
+            </Link>
+          ) : (
+            <Button
+              variant={highlight ? 'primary' : 'outline'}
+              className={`w-full !justify-center !py-3 !text-sm ${!highlight && '!border-white/10 !text-white hover:!bg-white hover:!text-black'}`}
+            >
+              {cta}
+            </Button>
+          )}
+        </div>
       </div>
     </div>
   );

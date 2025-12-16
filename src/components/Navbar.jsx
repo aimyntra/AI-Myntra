@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Grip } from 'lucide-react';
 import Button from './ui/Button';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const location = useLocation();
+    const isHome = location.pathname === '/';
 
     useEffect(() => {
         const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -19,7 +22,7 @@ export default function Navbar() {
         ${isScrolled ? 'bg-[#0a0a0a]/95 shadow-lg' : ''}
       `}>
                 {/* Logo */}
-                <div className="flex items-center gap-3 cursor-pointer group">
+                <Link to="/" className="flex items-center gap-3 cursor-pointer group">
                     <div className="relative">
                         <div className="absolute inset-0 bg-[var(--primary)] blur-md opacity-20 group-hover:opacity-40 transition-opacity"></div>
                         <div className="relative border border-white/10 bg-white/5 p-2 rounded-lg group-hover:border-[var(--primary)]/50 transition-colors">
@@ -34,11 +37,11 @@ export default function Navbar() {
                         <span className="text-xl font-bold tracking-tight text-white leading-none">AI Myntra</span>
                         <span className="text-[10px] text-[var(--primary)] tracking-widest uppercase font-semibold">Build the Future</span>
                     </div>
-                </div>
+                </Link>
 
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center gap-8">
-                    <a href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">For Business</a>
+                    <Link to="/about" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Methodology</Link>
                     <a href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Alumni</a>
                     <a href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Newsletter</a>
                     <a href="#" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Contact Us</a>
@@ -49,9 +52,11 @@ export default function Navbar() {
                     <button className="text-sm font-semibold text-gray-300 hover:text-white px-5 py-2.5 rounded-lg border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all">
                         Apply as Mentor
                     </button>
-                    <Button variant="primary" className="!py-2.5 !px-5 !text-sm !font-bold">
-                        Explore Courses
-                    </Button>
+                    <Link to="/">
+                        <Button variant="primary" className="!py-2.5 !px-5 !text-sm !font-bold">
+                            Explore Courses
+                        </Button>
+                    </Link>
                 </div>
 
                 {/* Mobile Menu Button */}

@@ -1,37 +1,20 @@
 import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import TrustedBy from './components/TrustedBy';
-import Programs from './components/Programs';
-import Masterminds from './components/Masterminds';
-import Bootcamps from './components/Bootcamps';
-import SkillsGrid from './components/SkillsGrid';
-import Workshops from './components/Workshops';
-import ToolsStack from './components/ToolsStack';
-import Mentors from './components/Mentors';
-import Testimonials from './components/Testimonials';
-import Consulting from './components/Consulting';
-import CallToAction from './components/CallToAction';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import CourseDetail from './pages/CourseDetail';
 
 function App() {
   return (
-    <div className="min-h-screen bg-[var(--bg-color)] text-[var(--text-main)] overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <TrustedBy />
-      <Programs />
-      <Masterminds />
-      <Bootcamps />
-      <SkillsGrid />
-      <Workshops />
-      <ToolsStack />
-      <Mentors />
-      <Testimonials />
-      <Consulting />
-      <CallToAction />
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-[#050505] text-[#ededed] overflow-x-hidden">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/programs/:slug" element={<CourseDetail />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

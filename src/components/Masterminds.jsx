@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Flame, ArrowRight, Calendar, Users } from 'lucide-react';
 import Button from './ui/Button';
 
@@ -6,6 +7,7 @@ export default function Masterminds() {
     const masterminds = [
         {
             title: "AI Mastermind",
+            slug: "ai-mastermind",
             duration: "2 Days",
             target: "Designers & Marketers",
             features: ["Build AI apps & visuals", "Prompt engineering mastery", "No coding required"],
@@ -13,6 +15,7 @@ export default function Masterminds() {
         },
         {
             title: "GenAI Engineering",
+            slug: "genai-engineering-mastermind",
             duration: "2 Days",
             target: "Developers & Builders",
             features: ["LLM APIs & Tool Calling", "Multi-agent systems", "Production deployment"],
@@ -49,9 +52,11 @@ export default function Masterminds() {
                                 </ul>
                             </div>
 
-                            <Button variant="outline" className="shrink-0 border-[var(--border-color)] text-[var(--text-muted)] hover:text-white hover:border-white">
-                                View Details
-                            </Button>
+                            <Link to={`/programs/${mm.slug}`}>
+                                <Button variant="outline" className="shrink-0 border-[var(--border-color)] text-[var(--text-muted)] hover:text-white hover:border-white">
+                                    View Details
+                                </Button>
+                            </Link>
                         </div>
                     ))}
                 </div>

@@ -5,6 +5,7 @@ export default function Programs() {
     const programs = [
         {
             title: "AI Empowerment Mastery",
+            slug: "ai-empowerment-mastery",
             duration: "8 Weeks",
             level: "Beginner → Intermediate",
             description: "Master no-code workflow automation and monetization strategies. Build your AI portfolio.",
@@ -15,6 +16,7 @@ export default function Programs() {
         },
         {
             title: "AI Engineering Accelerator",
+            slug: "ai-engineering-accelerator",
             duration: "14 days",
             level: "Developers & Engineers",
             description: "Intensive deep dive into building production-grade AI applications, RAG, and Agentic systems.",
@@ -25,6 +27,7 @@ export default function Programs() {
         },
         {
             title: "AI Revolution Intensive",
+            slug: "ai-revolution-intensive",
             duration: "100 Hours",
             level: "Career Switchers",
             description: "Comprehensive mastery of Generative AI, from diffusion models to advanced autonomous agents.",
