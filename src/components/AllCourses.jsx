@@ -69,6 +69,16 @@ export default function AllCourses() {
                     outcome: "LLM APIs, Multi-agent Systems",
                     cta: "View Details",
                     highlight: true
+                },
+                {
+                    title: "n8n Workflow Automation",
+                    slug: "n8n-workflow-automation",
+                    duration: "2 Days",
+                    level: "Automation Enthusiasts",
+                    description: "Master n8n for building complex AI-powered workflows, integrations, and automation pipelines.",
+                    outcome: "Advanced n8n Workflows, AI Integration",
+                    cta: "View Details",
+                    highlight: true
                 }
             ]
         },
@@ -86,6 +96,26 @@ export default function AllCourses() {
                     level: "Makers & Builders",
                     description: "Build & launch AI projects in one week. Voice agents, automations, and AI clones.",
                     outcome: "MVP Launch, No-code + Light Code",
+                    cta: "Join Bootcamp",
+                    highlight: true
+                },
+                {
+                    title: "AI-Powered Development",
+                    slug: "ai-powered-development-bootcamp",
+                    duration: "1 Week",
+                    level: "Developers & Coders",
+                    description: "Master AI coding assistants like Cursor, GitHub Copilot, and VS Code AI extensions to 10x your development speed.",
+                    outcome: "Ship Code 10x Faster with AI Tools",
+                    cta: "Join Bootcamp",
+                    highlight: true
+                },
+                {
+                    title: "Microsoft 365 Copilot Mastery",
+                    slug: "microsoft-365-copilot-bootcamp",
+                    duration: "1 Week",
+                    level: "Business Professionals",
+                    description: "Automate your work in Word, Excel, PowerPoint, Outlook, and Teams using Microsoft Copilot AI.",
+                    outcome: "10x Productivity in Office Apps",
                     cta: "Join Bootcamp",
                     highlight: true
                 }
@@ -110,7 +140,7 @@ export default function AllCourses() {
                     <h2 className="text-6xl md:text-8xl font-black mb-8 text-white tracking-tighter leading-[0.9] text-center mx-auto pl-32 md:pl-40">
                         Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CCF381] via-emerald-400 to-[#CCF381] animate-text-shimmer bg-[length:200%_auto]">AI Path</span>
                     </h2>
-                    <p className="text-gray-400 text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto text-center">
+                    <p className="text-gray-400 text-sm leading-relaxed max-w-4xl mx-auto text-center pl-32 md:pl-40">
                         From weekend deep dives to comprehensive fellowships. We have a program for every stage of your AI journey.
                     </p>
                 </div>
