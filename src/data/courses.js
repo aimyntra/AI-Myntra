@@ -309,11 +309,83 @@ export const courses = [
             engineering: ['TensorFlow/Keras', 'PyTorch', 'Google Colab']
         },
         structure: [
-            { title: 'Module 1', focus: 'GenAI Fundamentals', outcomes: ['Neural networks', 'LLM architecture', 'Tokenization'] },
-            { title: 'Module 2', focus: 'Diffusion Models', outcomes: ['DDPM & Stable Diffusion', 'Math behind diffusion'] },
-            { title: 'Module 3', focus: 'Media Manipulation', outcomes: ['Advanced prompting', 'Video/Audio generation'] },
-            { title: 'Module 4', focus: 'Custom GPTs & Agents', outcomes: ['Fine-tuning', 'Agentic workflows'] },
-            { title: 'Module 5', focus: 'No-Code Automations', outcomes: ['Visual workflows', 'Complex system orchestration'] }
+            { title: 'Phase 1', focus: 'The Creative Spark', outcomes: ['Prompt Mastery', 'Midjourney V6', 'AI Video'] },
+            { title: 'Phase 2', focus: 'The Automation Engine', outcomes: ['Zapier/Make', 'Custom GPTs', 'Workflow Design'] },
+            { title: 'Phase 3', focus: 'The Empire Build', outcomes: ['Product Launch', 'Monetization', 'System Scaling'] }
+        ],
+        curriculum: [
+            {
+                week: 1,
+                title: "Deconstructing Reality (GenAI Foundations)",
+                focus: "Mastering the physics of Latent Space",
+                days: [
+                    { day: "Day 1", topic: "The Latent Space Explained", description: "How models 'dream' and how to control them." },
+                    { day: "Day 2", topic: "Prompt Engineering 2.0", description: "Moving beyond 'Imagine a cat' to complex stylistic control." },
+                    { day: "Day 3", topic: "Text-to-Everything", description: "Generating code, music, and 3D assets from text." },
+                    { day: "Day 4", topic: "Ethical AI & Deepfakes", description: "Navigating the gray areas of synthetic media." },
+                    { day: "Day 5", topic: "Workshop: The Infinite Asset", description: "Generate 1,000 unique assets in 1 hour." }
+                ]
+            },
+            {
+                week: 2,
+                title: "Visual Synthesis & Art Direction",
+                focus: "Creating Movie-Quality Stills",
+                days: [
+                    { day: "Day 1", topic: "Midjourney V6 Advanced", description: "Permutations, Zoom Out, and Pan flows." },
+                    { day: "Day 2", topic: "Stable Diffusion ControlNet", description: "Forcing composition and pose on generation." },
+                    { day: "Day 3", topic: "Consistent Characters", description: "Training LoRAs (Low-Rank Adaptations) on faces." },
+                    { day: "Day 4", topic: "Commercial Design Workflows", description: "Packaging AI art for client delivery." },
+                    { day: "Day 5", topic: "Project: The Virtual Photoshoot", description: "Create a full fashion lookbook without a camera." }
+                ]
+            },
+            {
+                week: 3,
+                title: "Motion, Video & Sound",
+                focus: "The 100% AI Filmmaker",
+                days: [
+                    { day: "Day 1", topic: "Runway Gen-3 Alpha", description: "Directing scenes with motion brushes." },
+                    { day: "Day 2", topic: "Pika & Kling AI", description: "Lip-syncing and character animation." },
+                    { day: "Day 3", topic: "Suno & Udio Mastery", description: "Generating full broadcast-quality soundtracks." },
+                    { day: "Day 4", topic: "ElevenLabs Voice Cloning", description: "Creating synthetic narrators that breathe." },
+                    { day: "Day 5", topic: "Project: The 60-Second Spot", description: "Produce a TV-ready commercial solo." }
+                ]
+            },
+            {
+                week: 4,
+                title: "No-Code Automation & Systems",
+                focus: "Replacing Yourself with Robots",
+                days: [
+                    { day: "Day 1", topic: "Zapier vs. Make.com", description: "Choosing your automation battlefield." },
+                    { day: "Day 2", topic: "The 'Webhook' Concept", description: "Connecting disjointed apps instantly." },
+                    { day: "Day 3", topic: "Auto-Blogging Pipeline", description: "Idea -> Write -> SEO -> Publish loop." },
+                    { day: "Day 4", topic: "Social Media Autopilot", description: "Curating and posting while you sleep." },
+                    { day: "Day 5", topic: "Challenge: The $0 Employee", description: "Automate a role that costs $50k/year." }
+                ]
+            },
+            {
+                week: 5,
+                title: "Custom Agents & Personalization",
+                focus: "Building Brains for Your Business",
+                days: [
+                    { day: "Day 1", topic: "OpenAI 'GPTs' Store", description: "Configuring actions and knowledge files." },
+                    { day: "Day 2", topic: "RAG for Non-Coders", description: "Using tools to chat with your own data." },
+                    { day: "Day 3", topic: "Assistant APIs", description: "Embedding your brain into a website." },
+                    { day: "Day 4", topic: "Voice Agents (VAPI)", description: "Building phone bots that close deals." },
+                    { day: "Day 5", topic: "Project: The Support Clone", description: "An agent that answers 99% of emails." }
+                ]
+            },
+            {
+                week: 6,
+                title: "The 100-Hour Capstone",
+                focus: "Launch Your AI Empire",
+                days: [
+                    { day: "Day 1", topic: "Idea Validation with AI", description: "Using models to critique business plans." },
+                    { day: "Day 2", topic: "Landing Page Gen (V0)", description: "Spinning up high-conversion sites instantly." },
+                    { day: "Day 3", topic: "The Launch Strategy", description: "Viral marketing using your generated assets." },
+                    { day: "Day 4", topic: "Pricing & Legal", description: "Structuring your AI agency or product." },
+                    { day: "Day 5", topic: "Graduation: The Pitch", description: "Presenting your fully automated business." }
+                ]
+            }
         ],
         projects: [
             { title: 'Neural Network Classifier', description: 'Build and train a basic network to classify data.' },
@@ -356,8 +428,19 @@ export const courses = [
             engineering: ['OpenAI AgentKit (No-Code)']
         },
         structure: [
-            { title: 'Day 1', focus: 'Foundations & Media Mastery', outcomes: ['Prompting mastery', 'Video/Image generation pipeline'] },
-            { title: 'Day 2', focus: 'Agents & Automations', outcomes: ['Custom GPTs', 'End-to-end workflows', 'Capstone project'] }
+            { title: 'Day 1', focus: 'Creation & Media', outcomes: ['Midjourney Mastery', 'Viral Video Gen', 'Consistent Characters'] },
+            { title: 'Day 2', focus: 'Automation & Scale', outcomes: ['Zapier Pipelines', 'Custom AI Agents', 'Monetization'] }
+        ],
+        curriculum: [
+            {
+                week: 1,
+                title: "The Content & Automation Sprint",
+                focus: "2 Days to Change Your Workflow Forever",
+                days: [
+                    { day: "Day 1", topic: "Visual Synthesis & Media", description: "Mastering Midjourney V6, Runway Gen-2, and ElevenLabs for broadcast-quality assets." },
+                    { day: "Day 2", topic: "The Automated Business", description: "Building self-running systems with Make.com and Custom GPTs." }
+                ]
+            }
         ],
         projects: [
             { title: 'Professional Media Portfolio', description: 'Create stunning, consistent character series and cinematic video clips.' },
@@ -400,8 +483,19 @@ export const courses = [
             engineering: ['LangChain', 'LangGraph', 'CrewAI', 'LangSmith', 'OpenAI AgentKit']
         },
         structure: [
-            { title: 'Day 1', focus: 'LLM Foundations & Prompts', outcomes: ['Deep dive into architecture', 'Advanced prompt engineering', 'Streaming API integration'] },
-            { title: 'Day 2', focus: 'Agentic Workflows', outcomes: ['Reasoning loops', 'Multi-agent collaboration', 'Production scaling'] }
+            { title: 'Day 1', focus: 'LLM Mechanics', outcomes: ['Prompt Engineering', 'API Integration', 'MemGPT'] },
+            { title: 'Day 2', focus: 'Swarm Intelligence', outcomes: ['Multi-Agent Systems', 'Tool Creation', 'Self-Improving Code'] }
+        ],
+        curriculum: [
+            {
+                week: 1,
+                title: "Deep Tech Immersion",
+                focus: "Building Production-Grade AI Systems",
+                days: [
+                    { day: "Day 1", topic: "The LLM Stack", description: "From naive prompting to advanced RAG and function calling with OpenAI." },
+                    { day: "Day 2", topic: "Orchestrating Agents", description: "Building a team of autonomous workers using LangGraph and CrewAI." }
+                ]
+            }
         ],
         projects: [
             { title: 'Self-Improving Agent', description: 'Build an agent with reflection loops and tool use.' },
@@ -444,10 +538,25 @@ export const courses = [
             engineering: ['Softr', 'Bubble', 'AutoGPT', 'CrewAI']
         },
         structure: [
-            { title: 'Days 1-2', focus: 'Playground & Voice Agents', outcomes: ['Local LLM setup', 'Voice assistant creation'] },
-            { title: 'Days 3-4', focus: 'Clones & Media Gen', outcomes: ['Personal AI clone', 'AI video/audio assets'] },
-            { title: 'Days 5-6', focus: 'Automations & Agents', outcomes: ['Complex workflows', 'Autonomous research agents'] },
-            { title: 'Day 7', focus: 'Vibe Coding & Launch', outcomes: ['No-code MVP build', 'Product launch'] }
+            { title: 'Phase 1', focus: 'No-Code Build', outcomes: ['Voice Agents', 'Clones', 'Asset Gen'] },
+            { title: 'Phase 2', focus: 'Automation', outcomes: ['Complex Logic', 'Research Bots', 'CRM Sync'] },
+            { title: 'Phase 3', focus: 'Launch', outcomes: ['MVP Deployment', 'Marketing', 'Sales'] }
+        ],
+        curriculum: [
+            {
+                week: 1,
+                title: "Zero to One (The Build)",
+                focus: "Launching a Product in 7 Days",
+                days: [
+                    { day: "Day 1", topic: "The Voice Revolution", description: "Building AI that listens and speaks with VAPI." },
+                    { day: "Day 2", topic: "Digital Clones", description: "Creating your twin for video and audio content." },
+                    { day: "Day 3", topic: "The Research Droid", description: "An agent that browses 100s of sites for you." },
+                    { day: "Day 4", topic: "No-Code Logic", description: "Connecting the brain (LLM) to the body (Apps)." },
+                    { day: "Day 5", topic: "Vibe Coding the UI", description: "Generating a frontend with V0 and Bolt." },
+                    { day: "Day 6", topic: "The Launch Funnel", description: "Automating lead capture and email nurture." },
+                    { day: "Day 7", topic: "Demo Day & Revenue", description: "Going live and getting the first Stripe ping." }
+                ]
+            }
         ],
         projects: [
             { title: 'Personal Voice Assistant', description: 'Create an AI that handles calls and queries with your voice.' },
@@ -490,8 +599,19 @@ export const courses = [
             engineering: ['JavaScript', 'PostgreSQL']
         },
         structure: [
-            { title: 'Day 1', focus: 'n8n Fundamentals', outcomes: ['Understanding Nodes', 'Data flow mastery', 'Error handling'] },
-            { title: 'Day 2', focus: 'AI Agents in n8n', outcomes: ['LangChain integration', 'Memory management', 'Autonomous routers'] }
+            { title: 'Day 1', focus: 'Node Fluency', outcomes: ['Data Transformation', 'API Consuming', 'Webhooks'] },
+            { title: 'Day 2', focus: 'AI Integration', outcomes: ['LangChain Nodes', 'Vector Stores', 'Complex Routing'] }
+        ],
+        curriculum: [
+            {
+                week: 1,
+                title: "Visual Coding Mastery",
+                focus: "The Backbone of Modern AI Ops",
+                days: [
+                    { day: "Day 1", topic: "n8n Fundamentals", description: "JSON, Execution Context, and Error Handling patterns." },
+                    { day: "Day 2", topic: "The AI Node Revolution", description: "Building full RAG and molecular agents visually." }
+                ]
+            }
         ],
         projects: [
             { title: 'Social Media Auto-Pilot', description: 'Monitor trends, generate content, and post automatically.' },
@@ -534,9 +654,23 @@ export const courses = [
             engineering: ['Cursor', 'GitHub Copilot', 'V0.dev', 'Bolt.new']
         },
         structure: [
-            { title: 'Days 1-2', focus: 'IDE Superpowers', outcomes: ['Cursor mastery', 'Copilot keybindings', 'Context management'] },
-            { title: 'Days 3-4', focus: 'The "Vibe Coding" Stack', outcomes: ['Generating full apps', 'Iterative refinement', 'Debugging with AI'] },
-            { title: 'Day 5', focus: 'Security & Optimization', outcomes: ['Code quality checks', 'Leaking prevention', 'Unit test generation'] }
+            { title: 'Phase 1', focus: 'The AI IDE', outcomes: ['Cursor Shortcuts', 'Copilot Flow', 'Context'] },
+            { title: 'Phase 2', focus: 'Generative UI', outcomes: ['V0.dev', 'Component Libraries', 'Tailwind'] },
+            { title: 'Phase 3', focus: 'Quality & Test', outcomes: ['Auto-Unit Tests', 'Security Scanning', 'Refactoring'] }
+        ],
+        curriculum: [
+            {
+                week: 1,
+                title: "Velocity & "Vibe Coding"",
+                focus: "Thinking in Systems, Not Syntax",
+                days: [
+                    { day: "Day 1", topic: "Setting up the cockpit", description: "Cursor configuration, rules, and local models." },
+                    { day: "Day 2", topic: "Context Awareness", description: "Indexing your codebase for 'God-tier' autocomplete." },
+                    { day: "Day 3", topic: "Generative UI Workflows", description: "From sketch to React component in 30 seconds." },
+                    { day: "Day 4", topic: "Refactoring Legacy Mud", description: "Using Agents to rewrite technical debt." },
+                    { day: "Day 5", topic: "The 10x Developer Exam", description: "Build a full-stack Trello clone in 4 hours." }
+                ]
+            }
         ],
         projects: [
             { title: 'Legacy Code Refactor', description: 'Modernize an old codebase using AI agents.' },
@@ -579,9 +713,23 @@ export const courses = [
             engineering: ['M365 Copilot', 'Word', 'Excel', 'PowerPoint', 'Teams']
         },
         structure: [
-            { title: 'Days 1-2', focus: 'Documents & Data', outcomes: ['Drafting in Word', 'Analyzing pivots in Excel'] },
-            { title: 'Days 3-4', focus: 'Meetings & Comms', outcomes: ['Teams meeting summaries', 'Email triage in Outlook'] },
-            { title: 'Day 5', focus: 'Synthesis & Strategy', outcomes: ['Cross-app intelligence', 'Strategic briefing generation'] }
+            { title: 'Phase 1', focus: 'Word & Outlook', outcomes: ['Drafting', 'Summarizing', 'Email Triage'] },
+            { title: 'Phase 2', focus: 'Excel & Data', outcomes: ['Analysis', 'Pivot Tables', 'Visualization'] },
+            { title: 'Phase 3', focus: 'Teams & PPT', outcomes: ['Meeting Notes', 'Slide Gen', 'Coaching'] }
+        ],
+        curriculum: [
+            {
+                week: 1,
+                title: "Corporate Intelligence",
+                focus: "Reclaiming 20 Hours of Your Week",
+                days: [
+                    { day: "Day 1", topic: "The Copilot Brain", description: "Understanding the Graph and privacy boundaries." },
+                    { day: "Day 2", topic: "Excel Data Interrogation", description: "Turning million-row sheets into insights instantly." },
+                    { day: "Day 3", topic: "The Perfect Document", description: "Drafting, editing, and styling in Word with AI." },
+                    { day: "Day 4", topic: "Meeting Singillarity", description: "Being in two Teams meetings at once via transcripts." },
+                    { day: "Day 5", topic: "Storytelling at Speed", description: "Generating C-Suite decks in PowerPoint." }
+                ]
+            }
         ],
         projects: [
             { title: 'Automated Board Report', description: 'Compile data from Excel and updates from Email into a Word doc.' },
