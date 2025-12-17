@@ -3,7 +3,7 @@ import Button from './ui/Button';
 
 export default function CallToAction() {
     return (
-        <section className="py-32 relative overflow-hidden flex items-center justify-center">
+        <section className="pt-32 pb-48 relative overflow-hidden flex items-center justify-center">
             {/* Glow Effects */}
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--primary)]/10 to-transparent pointer-events-none"></div>
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[var(--primary)] opacity-20 blur-[150px] rounded-full"></div>

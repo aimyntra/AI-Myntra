@@ -22,7 +22,8 @@ export default function Consulting() {
                         We don't just teach AI. We implement enterprise-grade systems for forward-thinking companies.
                     </p>
                     <Button variant="primary">
-                        Talk to AI Myntra <ArrowUpRight className="ml-2" />
+                        Why Partner with AI Mantra?
+                        <ArrowUpRight className="ml-2" />
                     </Button>
                 </div>
 

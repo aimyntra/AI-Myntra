@@ -42,7 +42,7 @@ export function CurriculumTimeline({ structure }) {
     const [expanded, setExpanded] = useState(0);
 
     return (
-        <section className="py-40 bg-[#0a0a0f] relative overflow-hidden">
+        <section style={{ paddingTop: '120px', paddingBottom: '80px' }} className="bg-[#0a0a0f] relative overflow-hidden">
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-500/5 blur-[120px] rounded-full pointer-events-none" />
 

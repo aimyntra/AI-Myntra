@@ -44,7 +44,7 @@ export default function Hero() {
 
                 {/* Subheadline */}
                 <p className="text-lg md:text-xl text-[var(--text-muted)] mb-10 max-w-2xl animate-fade-in-up leading-relaxed" style={{ animationDelay: '0.2s' }}>
-                    AI Myntra helps professionals and founders build production-grade AI systems, automate workflows, and launch products.
+                    AI Mantra helps professionals and founders build production-grade AI systems, automate workflows, and launch products.
                 </p>
 
                 {/* CTAs - Centered, max 2 */}

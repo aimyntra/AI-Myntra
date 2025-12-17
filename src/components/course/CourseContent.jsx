@@ -4,11 +4,10 @@ import { Check, Layers, ArrowRight, Database, Bot, Cloud, Terminal, Image, Workf
 
 export function MasterySection({ skills, tools }) {
     return (
-        <section className="py-32 bg-[#0a0a0f]">
-            <div className="max-w-[1200px] mx-auto px-6 space-y-24">
-
-                {/* Part A: Skills */}
-                <div>
+        <>
+            {/* Part A: What You Will Master */}
+            <section style={{ paddingTop: '120px', paddingBottom: '80px' }} className="bg-[#0a0a0f]">
+                <div className="max-w-[1200px] mx-auto px-6">
                     <h2 className="text-3xl font-bold text-white mb-12 border-l-4 border-[#00ff88] pl-6">What You Will Master</h2>
                     <div className="grid md:grid-cols-3 gap-8">
                         {skills.map((skill, idx) => (
@@ -28,10 +27,17 @@ export function MasterySection({ skills, tools }) {
                         ))}
                     </div>
                 </div>
+            </section>
 
-                {/* Part B: Production Stack */}
-                <div>
-                    <h3 className="text-2xl font-bold text-white mb-8">Production Stack</h3>
+            {/* Visual Spacer/Divider */}
+            <div style={{ height: '80px' }} className="bg-gradient-to-b from-[#0a0a0f] via-[#0d0d14] to-[#0d0d12] flex items-center justify-center">
+                <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-[#00ff88]/30 to-transparent"></div>
+            </div>
+
+            {/* Part B: Production Stack - Separate Section */}
+            <section style={{ paddingTop: '80px', paddingBottom: '120px' }} className="bg-[#0d0d12]">
+                <div className="max-w-[1200px] mx-auto px-6">
+                    <h3 className="text-3xl font-bold text-white mb-12 border-l-4 border-[#00ff88] pl-6">Production Stack</h3>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
                             { cat: "LLMs / Models", items: ["ChatGPT", "Claude", "Gemini"], icon: Bot },
@@ -53,15 +59,15 @@ export function MasterySection({ skills, tools }) {
                         ))}
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 }
 
 export function ArtifactsShowcase({ projects }) {
     return (
-        <section className="py-40 relative overflow-hidden">
-            <div className="absolute inset-0 bg-[#0a0a0f]" />
+        <section style={{ paddingTop: '80px', paddingBottom: '120px' }} className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-[#0d0d12]" />
             <div className="max-w-[1200px] mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold text-white mb-4">Build Real-World Solutions</h2>

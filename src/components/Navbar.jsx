@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Grip } from 'lucide-react';
 import Button from './ui/Button';
+import MegaMenu from './layout/MegaMenu';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [megaMenuOpen, setMegaMenuOpen] = useState(false);
     const location = useLocation();
     const isHome = location.pathname === '/';
 
@@ -34,7 +36,7 @@ export default function Navbar() {
                         </div>
                     </div>
                     <div className="flex flex-col">
-                        <span className="text-xl font-bold tracking-tight text-white leading-none">AI Myntra</span>
+                        <span className="text-xl font-bold tracking-tight text-white leading-none">AI Mantra</span>
                         <span className="text-[10px] text-[var(--primary)] tracking-widest uppercase font-semibold">Build the Future</span>
                     </div>
                 </Link>
@@ -48,15 +50,21 @@ export default function Navbar() {
                 </div>
 
                 {/* Desktop CTAs */}
-                <div className="hidden md:flex items-center gap-3">
+                <div className="hidden md:flex items-center gap-3 relative">
                     <button className="text-sm font-semibold text-gray-300 hover:text-white px-5 py-2.5 rounded-lg border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all">
                         Apply as Mentor
                     </button>
-                    <Link to="/">
-                        <Button variant="primary" className="!py-2.5 !px-5 !text-sm !font-bold">
+
+                    <div className="relative">
+                        <Button
+                            variant="primary"
+                            className="!py-2.5 !px-5 !text-sm !font-bold"
+                            onClick={() => setMegaMenuOpen(!megaMenuOpen)}
+                        >
                             Explore Courses
                         </Button>
-                    </Link>
+                        <MegaMenu isOpen={megaMenuOpen} onClose={() => setMegaMenuOpen(false)} />
+                    </div>
                 </div>
 
                 {/* Mobile Menu Button */}

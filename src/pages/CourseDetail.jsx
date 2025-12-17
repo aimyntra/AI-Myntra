@@ -33,6 +33,11 @@ export default function CourseDetail() {
 
             <CurriculumTimeline structure={course.structure} />
 
+            {/* Visual Spacer/Divider between Curriculum and Artifacts */}
+            <div style={{ height: '80px' }} className="bg-gradient-to-b from-[#0a0a0f] via-[#0d0d14] to-[#0d0d12] flex items-center justify-center">
+                <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-[#00ff88]/30 to-transparent"></div>
+            </div>
+
             <ArtifactsShowcase projects={course.projects} />
 
             {/* Outcomes & Certification (Inline for now) */}

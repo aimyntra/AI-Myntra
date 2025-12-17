@@ -31,7 +31,7 @@ export default function About() {
                             <span className="text-white">Not Just Slides.</span>
                         </h1>
                         <p className="text-xl text-gray-400 leading-relaxed mb-8">
-                            AI Myntra exists to bridge the gap between "watching AI tutorials" and <span className="text-white font-medium">deploying production-grade AI systems</span>. We are an accelerator for engineers, creators, and founders who want to build the future, not just watch it happen.
+                            AI Mantra exists to bridge the gap between "watching AI tutorials" and <span className="text-white font-medium">deploying production-grade AI systems</span>. We are an accelerator for engineers, creators, and founders who want to build the future, not just watch it happen.
                         </p>
                     </div>
                 </section>
