@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import { Menu, X, Grip } from 'lucide-react';
 import Button from './ui/Button';
 import MegaMenu from './layout/MegaMenu';
+import MobileMenu from './layout/MobileMenu';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -74,18 +76,11 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu Overlay */}
-            {mobileMenuOpen && (
-                <div className="absolute top-[80px] left-4 right-4 bg-[#121212] border border-white/10 rounded-2xl p-6 flex flex-col gap-6 shadow-2xl animate-fade-in-up">
-                    <a href="#" className="text-lg font-medium text-gray-200" onClick={() => setMobileMenuOpen(false)}>For Business</a>
-                    <a href="#" className="text-lg font-medium text-gray-200" onClick={() => setMobileMenuOpen(false)}>Alumni</a>
-                    <a href="#" className="text-lg font-medium text-gray-200" onClick={() => setMobileMenuOpen(false)}>Newsletter</a>
-                    <a href="#" className="text-lg font-medium text-gray-200" onClick={() => setMobileMenuOpen(false)}>Contact Us</a>
-                    <div className="flex flex-col gap-3 mt-4 border-t border-white/10 pt-6">
-                        <button className="w-full text-center py-3 rounded-lg border border-white/10 text-white">Apply as Mentor</button>
-                        <Button variant="primary" className="w-full">Explore Courses</Button>
-                    </div>
-                </div>
-            )}
+            <AnimatePresence>
+                {mobileMenuOpen && (
+                    <MobileMenu onClose={() => setMobileMenuOpen(false)} />
+                )}
+            </AnimatePresence>
         </nav>
     );
 }

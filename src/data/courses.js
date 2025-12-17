@@ -272,5 +272,139 @@ export const courses = [
             certification: 'AI Builder Certificate'
         },
         ethics: 'Ensure voice cloning consent and avoid misleading deepfakes.'
+    },
+    {
+        id: 'n8n-workflow-automation',
+        slug: 'n8n-workflow-automation',
+        title: 'n8n Workflow Automation',
+        tagline: 'Master Visual Automation to Build Complex AI Agents and Workflows',
+        duration: '2 Days • Hands-on',
+        heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop',
+        audience: [
+            'Automation Engineers',
+            'Operations Managers',
+            'Technical Founders'
+        ],
+        skills: [
+            'Advanced Webhooks',
+            'JSON Data Manipulation',
+            'API Integrations'
+        ],
+        tools: {
+            llms: ['OpenAI', 'Anthropic'],
+            automation: ['n8n', 'Postman'],
+            media: [],
+            engineering: ['JavaScript', 'PostgreSQL']
+        },
+        structure: [
+            { title: 'Day 1', focus: 'n8n Fundamentals', outcomes: ['Understanding Nodes', 'Data flow mastery', 'Error handling'] },
+            { title: 'Day 2', focus: 'AI Agents in n8n', outcomes: ['LangChain integration', 'Memory management', 'Autonomous routers'] }
+        ],
+        projects: [
+            { title: 'Social Media Auto-Pilot', description: 'Monitor trends, generate content, and post automatically.' },
+            { title: 'CRM Enrichment Bot', description: 'Enrich leads from email using Clearbit and AI analysis.' },
+            { title: 'Customer Support Agent', description: 'Ticket classification and auto-response system.' }
+        ],
+        outcomes: [
+            'Full n8n Proficiency',
+            '3 Production Workflows',
+            'Self-Hosting Knowledge'
+        ],
+        format: {
+            type: 'Weekend Deep Dive',
+            access: 'Workflow Templates',
+            certification: 'Automation Architect Badge'
+        },
+        ethics: 'Responsible rate-limiting and data privacy in automations.'
+    },
+    {
+        id: 'ai-powered-development-bootcamp',
+        slug: 'ai-powered-development-bootcamp',
+        title: 'AI-Powered Development',
+        tagline: '10x Your Coding Speed with Cursor, Copilot, and LLM-Driven Workflows',
+        duration: '1 Week • Intensive',
+        heroImage: 'https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=2706&auto=format&fit=crop',
+        audience: [
+            'Software Developers',
+            'Full Stack Engineers',
+            'CTOs'
+        ],
+        skills: [
+            'Context-Aware Prompting',
+            'Codebase Indexing',
+            'Refactoring with AI'
+        ],
+        tools: {
+            llms: ['Claude 3.5 Sonnet', 'GPT-4o'],
+            automation: ['GitHub Actions'],
+            media: [],
+            engineering: ['Cursor', 'GitHub Copilot', 'V0.dev', 'Bolt.new']
+        },
+        structure: [
+            { title: 'Days 1-2', focus: 'IDE Superpowers', outcomes: ['Cursor mastery', 'Copilot keybindings', 'Context management'] },
+            { title: 'Days 3-4', focus: 'The "Vibe Coding" Stack', outcomes: ['Generating full apps', 'Iterative refinement', 'Debugging with AI'] },
+            { title: 'Day 5', focus: 'Security & Optimization', outcomes: ['Code quality checks', 'Leaking prevention', 'Unit test generation'] }
+        ],
+        projects: [
+            { title: 'Legacy Code Refactor', description: 'Modernize an old codebase using AI agents.' },
+            { title: 'Full Stack App in 24h', description: 'Build a Trello clone from scratch using V0 and Cursor.' },
+            { title: 'Automated Test Suite', description: 'Generate comprehensive coverage for a complex API.' }
+        ],
+        outcomes: [
+            'Ship Features 5x Faster',
+            'Mastery of AI IDEs',
+            'Cleaner, Better Code'
+        ],
+        format: {
+            type: '1-Week Bootcamp',
+            access: 'Prompt Library',
+            certification: 'AI Developer Certification'
+        },
+        ethics: 'Understanding IP implications of AI-generated code.'
+    },
+    {
+        id: 'microsoft-365-copilot-bootcamp',
+        slug: 'microsoft-365-copilot-bootcamp',
+        title: 'Microsoft 365 Copilot Mastery',
+        tagline: 'Transform Your Office Workflow with Integrated AI Assistance',
+        duration: '1 Week • Corporate Focus',
+        heroImage: 'https://images.unsplash.com/photo-1633419461186-7d40a23933a7?q=80&w=2532&auto=format&fit=crop',
+        audience: [
+            'Business Professionals',
+            'Executive Assistants',
+            'Project Managers'
+        ],
+        skills: [
+            'Document Synthesis',
+            'Data Analysis in Excel',
+            'Presentation Generation'
+        ],
+        tools: {
+            llms: ['GPT-4 (via Copilot)'],
+            automation: ['Power Automate'],
+            media: ['DALL-E 3 (via Designer)'],
+            engineering: ['M365 Copilot', 'Word', 'Excel', 'PowerPoint', 'Teams']
+        },
+        structure: [
+            { title: 'Days 1-2', focus: 'Documents & Data', outcomes: ['Drafting in Word', 'Analyzing pivots in Excel'] },
+            { title: 'Days 3-4', focus: 'Meetings & Comms', outcomes: ['Teams meeting summaries', 'Email triage in Outlook'] },
+            { title: 'Day 5', focus: 'Synthesis & Strategy', outcomes: ['Cross-app intelligence', 'Strategic briefing generation'] }
+        ],
+        projects: [
+            { title: 'Automated Board Report', description: 'Compile data from Excel and updates from Email into a Word doc.' },
+            { title: 'Instant Slide Deck', description: 'Turn a whitepaper into a 10-slide PowerPoint presentation.' },
+            { title: 'Smart Meeting Assistant', description: 'Set up automated summaries and action items for all calls.' }
+        ],
+        outcomes: [
+            'Save 10+ Hours/Week',
+            'Data-Driven Decision Making',
+            'Effortless Documentation'
+        ],
+        format: {
+            type: '1-Week Workshop',
+            access: 'Cheat Sheets',
+            certification: 'Copilot Productivity Expert'
+        },
+        ethics: 'Data privacy within the corporate tenant.'
     }
 ];

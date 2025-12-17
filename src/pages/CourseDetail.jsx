@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { courses } from '../data/courses';
 import Navbar from '../components/Navbar';
@@ -8,10 +8,12 @@ import { AudienceSection, CurriculumTimeline } from '../components/course/Course
 import { MasterySection, ArtifactsShowcase } from '../components/course/CourseContent';
 import { Check, Award, Lock, MessageSquare, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import ViralEnrollmentModal from '../components/checkout/ViralEnrollmentModal';
 
 export default function CourseDetail() {
     const { slug } = useParams();
     const course = courses.find((c) => c.slug === slug);
+    const [isEnrollOpen, setIsEnrollOpen] = useState(false);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -92,7 +94,10 @@ export default function CourseDetail() {
                         </p>
 
                         <div className="flex flex-col items-center gap-4">
-                            <button className="px-12 py-5 bg-[#00ff88] text-black font-bold text-xl rounded-2xl shadow-[0_0_30px_rgba(0,255,136,0.3)] hover:scale-105 transition-transform flex items-center gap-3">
+                            <button
+                                onClick={() => setIsEnrollOpen(true)}
+                                className="px-12 py-5 bg-[#00ff88] text-black font-bold text-xl rounded-2xl shadow-[0_0_30px_rgba(0,255,136,0.3)] hover:scale-105 transition-transform flex items-center gap-3 cursor-pointer"
+                            >
                                 Secure Your Spot <ArrowRight />
                             </button>
                             <p className="text-[#00ff88] text-sm font-bold flex items-center gap-2">
@@ -105,6 +110,12 @@ export default function CourseDetail() {
             </section>
 
             <Footer />
+
+            <ViralEnrollmentModal
+                isOpen={isEnrollOpen}
+                onClose={() => setIsEnrollOpen(false)}
+                courseTitle={course.title}
+            />
         </div>
     );
 }
