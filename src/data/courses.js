@@ -166,32 +166,105 @@ export const courses = [
             engineering: ['LangChain', 'LlamaIndex', 'LangGraph', 'Vercel', 'Pinecone', 'LangSmith']
         },
         structure: [
-            { title: 'Week 1', focus: 'RAG & Architectures', outcomes: ['Hybrid Search', 'Vector DBs', 'DSPy'] },
-            { title: 'Week 2', focus: 'Agentic Systems', outcomes: ['Multi-Agent Orchestration', 'LangGraph', 'Deep Evals'] }
+            { title: 'Weeks 1-2', focus: 'RAG & Vector Search', outcomes: ['Hybrid Search', 'Pinecone/Weaviate', 'Advanced Retrieval'] },
+            { title: 'Weeks 3-5', focus: 'Agents & Orchestration', outcomes: ['LangGraph', 'Multi-Agent Swarms', 'Tool Calling'] },
+            { title: 'Weeks 6-8', focus: 'Production & scale', outcomes: ['LLMOps', 'Fine-tuning', 'SaaS Deployment'] }
         ],
         curriculum: [
             {
                 week: 1,
-                title: "RAG & Cognitive Architectures",
-                focus: "Building Systems That Remember",
+                title: "LLM Physics & Prompt Engineering",
+                focus: "Understanding the Ghost in the Machine",
                 days: [
-                    { day: "Day 1", topic: "The Transformer & Token Economics", description: "Deep dive into attention mechanisms and cost modeling." },
-                    { day: "Day 2", topic: "Vector Database Fluency", description: "Pinecone, Weaviate, and HNSW indexes explained." },
-                    { day: "Day 3", topic: "Advanced RAG Pipelines", description: "Hybrid search, reranking (Cohere), and query expansion." },
-                    { day: "Day 4", topic: "Structured Output & Function Calling", description: "Forcing JSON and connecting to external APIs." },
-                    { day: "Day 5", topic: "Buildathon: The 'Second Brain'", description: "Ship a multi-modal RAG system with retrieval." }
+                    { day: "Day 1", topic: "Transformers & Token Economics", description: "Attention mechanisms, context windows, and cost optimization." },
+                    { day: "Day 2", topic: "Advanced Prompting Patterns", description: "CoT, Tree of Thoughts, and System Prompts." },
+                    { day: "Day 3", topic: "Structured Outputs (JSON Mode)", description: "Taming LLMs to speak code, not poetry." },
+                    { day: "Day 4", topic: "Function Calling & Tools", description: "giving LLMs hands to interact with APIs." },
+                    { day: "Day 5", topic: "Build: The CLI Assistant", description: "Create a terminal-based AI helper." }
                 ]
             },
             {
                 week: 2,
-                title: "Agents, Swarms & Production",
-                focus: "From Chatbots to Autonomous Workers",
+                title: "RAG Foundations & Vector DBs",
+                focus: "Giving Models Long-Term Memory",
                 days: [
-                    { day: "Day 1", topic: "Agentic Patterns (ReAct)", description: "Building reasoning loops from scratch." },
-                    { day: "Day 2", topic: "Multi-Agent Orchestration", description: "LangGraph state machines and swarm intelligence." },
-                    { day: "Day 3", topic: "LLMOps & Evaluations", description: "Using LangSmith/Arize to stop hallucinations." },
-                    { day: "Day 4", topic: "Deployment & Latency", description: "Vercel streaming, edge functions, and caching." },
-                    { day: "Day 5", topic: "The Final Ship", description: "Deploying a SaaS-ready autonomous agent." }
+                    { day: "Day 1", topic: "Vector Embeddings 101", description: "High-dimensional spaces and cosine similarity." },
+                    { day: "Day 2", topic: "Pinecone & Weaviate Setup", description: "Production-grade vector infrastructure." },
+                    { day: "Day 3", topic: "Chunking Strategies", description: "Semantic vs. Fixed-size windowing techniques." },
+                    { day: "Day 4", topic: "Retrieval Pipelines", description: "Building the context injection loop." },
+                    { day: "Day 5", topic: "Build: Chat-with-PDF Engine", description: "Full stack document QA system." }
+                ]
+            },
+            {
+                week: 3,
+                title: "Advanced RAG Architectures",
+                focus: "Solving Hallucinations & Retrieval Failures",
+                days: [
+                    { day: "Day 1", topic: "Hybrid Search (Keyword + Vector)", description: "Best of both worlds retrieval." },
+                    { day: "Day 2", topic: "Re-ranking Algorithms (Cohere)", description: "Sorting results for maximum relevance." },
+                    { day: "Day 3", topic: "GraphRAG & Knowledge Graphs", description: "Structuring data for complex reasoning." },
+                    { day: "Day 4", topic: "Context Compression", description: "Squeezing more info into the prompt." },
+                    { day: "Day 5", topic: "Build: The Legal Research Bot", description: "High-accuracy citation engine." }
+                ]
+            },
+            {
+                week: 4,
+                title: "Agentic Workflows (LangChain)",
+                focus: "Reasoning and Action Loops",
+                days: [
+                    { day: "Day 1", topic: "ReAct Pattern Implementation", description: "Reason + Act loops from scratch." },
+                    { day: "Day 2", topic: "LangChain Deep Dive", description: "Chains, Memory, and Callbacks." },
+                    { day: "Day 3", topic: "Building Custom Tools", description: "Connecting agents to Slack, Gmail, and SQL." },
+                    { day: "Day 4", topic: "Router Chains", description: "Dynamically selecting the right prompt." },
+                    { day: "Day 5", topic: "Build: Automated Analyst", description: "Agent that queries DBs and writes reports." }
+                ]
+            },
+            {
+                week: 5,
+                title: "Multi-Agent Systems",
+                focus: "Orchestrating AI Teams",
+                days: [
+                    { day: "Day 1", topic: "LangGraph State Machines", description: "Cyclic graphs for complex behaviors." },
+                    { day: "Day 2", topic: "Hierarchical Teams", description: "Manager-Worker agent architectures." },
+                    { day: "Day 3", topic: "Reflection & Critique Loops", description: "Agents that review their own code." },
+                    { day: "Day 4", topic: "Human-in-the-Loop", description: "Approval steps for sensitive actions." },
+                    { day: "Day 5", topic: "Build: Dev Shop Simulation", description: "PM, Dev, and QA agents building apps." }
+                ]
+            },
+            {
+                week: 6,
+                title: "LLMOps & Evaluation",
+                focus: "Moving from Notebook to Production",
+                days: [
+                    { day: "Day 1", topic: "Eval Frameworks (RAGAS)", description: "Measuring faithfulness and relevancy." },
+                    { day: "Day 2", topic: "Tracing with LangSmith", description: "Debugging complex agent chains." },
+                    { day: "Day 3", topic: "Caching & Cost Control", description: "Semantic caching to save $$$." },
+                    { day: "Day 4", topic: "Security & Guardrails", description: "Preventing jailbreaks and injections." },
+                    { day: "Day 5", topic: "Workshop: Red Teaming", description: "Trying to break your own agents." }
+                ]
+            },
+            {
+                week: 7,
+                title: "Fine-Tuning & Small Models",
+                focus: "Owning Your Weights",
+                days: [
+                    { day: "Day 1", topic: "When to Fine-Tune?", description: "Context injection vs. Weight updates." },
+                    { day: "Day 2", topic: "Data Prep & Formatting", description: "Creating high-quality instruction datasets." },
+                    { day: "Day 3", topic: "LoRA & PEFT", description: "Efficient fine-tuning on consumer GPUs." },
+                    { day: "Day 4", topic: "Ollama & Local Inference", description: "Running Llama 3 on your laptop." },
+                    { day: "Day 5", topic: "Build: The Specialist Model", description: "Fine-tune a model for medical/legal code." }
+                ]
+            },
+            {
+                week: 8,
+                title: "SaaS Deployment & Launch",
+                focus: "Shipping to the World",
+                days: [
+                    { day: "Day 1", topic: "Backend Architecture (FastAPI)", description: "Serving async AI endpoints." },
+                    { day: "Day 2", topic: "Streaming Responses", description: "Vercel AI SDK & Edge usage." },
+                    { day: "Day 3", topic: "Auth & Rate Limiting", description: "Protecting your API." },
+                    { day: "Day 4", topic: "Monetization Strategies", description: "Subscriptions vs. Usage-based pricing." },
+                    { day: "Day 5", topic: "Demo Day", description: "Live launch of your AI SaaS." }
                 ]
             }
         ],
