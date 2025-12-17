@@ -107,15 +107,11 @@ export default function AllCourses() {
                         <span className="w-2 h-2 bg-[#CCF381] rounded-full animate-pulse"></span>
                         <span className="text-[#CCF381] font-mono text-xs tracking-widest uppercase">World-Class Curriculum</span>
                     </div>
-                    <h2 className="text-6xl md:text-8xl font-black mb-8 text-white tracking-tighter leading-[0.9]">
-                        Choose Your{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CCF381] via-emerald-400 to-[#CCF381] animate-text-shimmer bg-[length:200%_auto]">
-                            AI Path
-                        </span>
+                    <h2 className="text-6xl md:text-8xl font-black mb-8 text-white tracking-tighter leading-[0.9] text-center mx-auto pl-32 md:pl-40">
+                        Choose Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CCF381] via-emerald-400 to-[#CCF381] animate-text-shimmer bg-[length:200%_auto]">AI Path</span>
                     </h2>
-                    <p className="text-gray-400 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
-                        From weekend deep dives to comprehensive fellowships.<br className="hidden md:block" />
-                        We have a program for every stage of your AI journey.
+                    <p className="text-gray-400 text-xl md:text-2xl leading-relaxed max-w-4xl mx-auto text-center">
+                        From weekend deep dives to comprehensive fellowships. We have a program for every stage of your AI journey.
                     </p>
                 </div>
 
