@@ -6,6 +6,8 @@ import Button from './ui/Button';
 import MegaMenu from './layout/MegaMenu';
 import MobileMenu from './layout/MobileMenu';
 
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -52,10 +54,21 @@ export default function Navbar() {
                 </div>
 
                 {/* Desktop CTAs */}
-                <div className="hidden md:flex items-center gap-3 relative">
-                    <button className="text-sm font-semibold text-gray-300 hover:text-white px-5 py-2.5 rounded-lg border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all">
-                        Apply as Mentor
-                    </button>
+                <div className="hidden md:flex items-center gap-6 relative">
+                    <SignedOut>
+                        <Link to="/sign-in" className="text-sm font-semibold text-gray-300 hover:text-white px-5 py-2.5 rounded-lg border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all">
+                            Sign In
+                        </Link>
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton
+                            appearance={{
+                                elements: {
+                                    avatarBox: "w-9 h-9 border border-white/20"
+                                }
+                            }}
+                        />
+                    </SignedIn>
 
                     <div className="relative">
                         <Button

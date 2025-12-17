@@ -4,6 +4,9 @@ import Home from './pages/Home';
 import About from './pages/About';
 import CourseDetail from './pages/CourseDetail';
 
+import SignInPage from './pages/SignInPage';
+import SignUpPage from './pages/SignUpPage';
+
 function App() {
   return (
     <Router>
@@ -12,6 +15,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/programs/:slug" element={<CourseDetail />} />
+          <Route path="/sign-in/*" element={<SignInPage />} />
+          <Route path="/sign-up/*" element={<SignUpPage />} />
         </Routes>
       </div>
     </Router>

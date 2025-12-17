@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronDown, ChevronRight, ArrowRight } from 'lucide-react';
 import { courses } from '../../data/courses';
 import Button from '../ui/Button';
+import { SignedIn, SignedOut, UserButton } from "@clerk/clerk-react";
 
 const menuVariants = {
     closed: {
@@ -133,9 +134,34 @@ export default function MobileMenu({ onClose }) {
 
             {/* Footer Actions */}
             <motion.div variants={itemVariants} className="mt-12 flex flex-col gap-4">
-                <Button className="w-full justify-center !py-4 text-lg">
+                <SignedOut>
+                    <Link to="/sign-in" onClick={onClose}>
+                        <Button className="w-full justify-center !py-4 text-lg">
+                            Sign In / Join
+                        </Button>
+                    </Link>
+                </SignedOut>
+
+                <SignedIn>
+                    <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
+                        <UserButton
+                            appearance={{
+                                elements: {
+                                    avatarBox: "w-10 h-10 border border-white/20"
+                                }
+                            }}
+                        />
+                        <div className="flex flex-col">
+                            <span className="text-sm font-bold text-white">My Account</span>
+                            <span className="text-xs text-gray-400">Manage your profile</span>
+                        </div>
+                    </div>
+                </SignedIn>
+
+                <Button variant="secondary" className="w-full justify-center !py-4 text-lg">
                     Apply as Mentor
                 </Button>
+
                 <div className="flex items-center justify-center gap-6 mt-6 text-gray-500">
                     <a href="#" className="hover:text-white transition-colors">Twitter</a>
                     <a href="#" className="hover:text-white transition-colors">LinkedIn</a>

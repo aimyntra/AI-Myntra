@@ -3,12 +3,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Check, Users, Shield, ArrowRight, Clock } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import Button from '../ui/Button';
+import { useUser } from "@clerk/clerk-react";
 
 export default function ViralEnrollmentModal({ isOpen, onClose, courseTitle }) {
     const [step, setStep] = useState('offer'); // offer, processing, success
     const [email, setEmail] = useState('');
     const [viewers, setViewers] = useState(12);
     const [spots, setSpots] = useState(5);
+    const { user, isLoaded } = useUser();
+
+    // Auto-fill email if user is logged in
+    useEffect(() => {
+        if (isLoaded && user && user.primaryEmailAddress) {
+            setEmail(user.primaryEmailAddress.emailAddress);
+        }
+    }, [isLoaded, user, isOpen]);
 
     // Simulate "Live" viewers
     useEffect(() => {
