@@ -18,10 +18,10 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 flex justify-center px-4 ${isScrolled ? 'pt-4' : 'pt-6'}`}>
+        <nav className={`fixed top-4 left-0 right-0 z-50 transition-all duration-300 flex justify-center px-4 ${isScrolled ? 'pt-0' : 'pt-2'}`}>
             <div className={`
-        w-full max-w-[1440px] bg-[#121212]/90 backdrop-blur-xl border border-white/10 rounded-2xl px-8 py-4 flex items-center justify-between shadow-[0_4px_30px_rgba(0,0,0,0.5)] transition-all duration-300
-        ${isScrolled ? 'bg-[#0a0a0a]/95 shadow-lg' : ''}
+        w-full max-w-[95%] bg-[#121212]/90 backdrop-blur-xl border border-white/10 rounded-2xl px-6 md:px-10 py-5 flex items-center justify-between shadow-[0_8px_40px_rgba(0,0,0,0.6)] transition-all duration-300
+        ${isScrolled ? 'bg-[#0a0a0a]/95 shadow-2xl border-[var(--primary)]/20' : ''}
       `}>
                 {/* Logo */}
                 <Link to="/" className="flex items-center gap-3 cursor-pointer group">

@@ -12,7 +12,7 @@ export default function Programs() {
             tools: ["ChatGPT", "Claude", "Gemini", "Notion AI", "Zapier", "Make"],
             outcome: "10+ workflows, portfolio, monetization plan",
             cta: "View Program",
-            highlight: false
+            highlight: true
         },
         {
             title: "AI Engineering Accelerator",
@@ -34,7 +34,7 @@ export default function Programs() {
             tools: ["Diffusion", "Agents", "Media", "Automations", "Fine-tuning"],
             outcome: "Complete career transformation & portfolio",
             cta: "Explore Intensive",
-            highlight: false
+            highlight: true
         }
     ];
 
