@@ -92,7 +92,8 @@ export default function CourseDetail() {
 
             <StickyEnrollmentBar
                 onEnroll={() => setIsEnrollOpen(true)}
-                price="$299" // You could arguably pass this from course data if avail
+                price={course.price}
+                originalPrice={course.originalPrice}
             />
         </div>
     );

@@ -6,6 +6,8 @@ export const courses = [
         tagline: 'From Tools to Workflows and Profitable Ventures',
         duration: '8 Weeks • Comprehensive',
         heroImage: 'https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2565&auto=format&fit=crop',
+        price: '₹24,999',
+        originalPrice: '₹50,000',
         audience: [
             'Beginners to Intermediate AI Users',
             'Professionals & Freelancers',
@@ -149,6 +151,8 @@ export const courses = [
         tagline: '14-Day Intensive Bootcamp to Build and Deploy Production-Ready AI Systems',
         duration: '14 Days • Intensive Coding',
         heroImage: 'https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=2670&auto=format&fit=crop',
+        price: '₹29,999',
+        originalPrice: '₹60,000',
         audience: [
             'Intermediate Developers',
             'Python Programmers',
@@ -292,6 +296,8 @@ export const courses = [
         tagline: '100 Hours to Master Generative AI and Build Your Future',
         duration: '100 Hours • Immersive',
         heroImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2532&auto=format&fit=crop',
+        price: '₹19,999',
+        originalPrice: '₹40,000',
         audience: [
             'Beginners to Intermediate Learners',
             'Content Creators',
@@ -411,6 +417,8 @@ export const courses = [
         tagline: '2-Day Intensive to Build AI Apps, Stunning Visuals, and Automated Workflows',
         duration: '2 Days • Weekend Intensive',
         heroImage: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2670&auto=format&fit=crop',
+        price: '₹1,499',
+        originalPrice: '₹10,000',
         audience: [
             'Creators & Marketers',
             'Entrepreneurs',
@@ -466,6 +474,8 @@ export const courses = [
         tagline: '2-Day Intensive to Master LLM APIs, Prompt Engineering, and Multi-Agent Systems',
         duration: '2 Days • Engineer Focused',
         heroImage: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2670&auto=format&fit=crop',
+        price: '₹1,999',
+        originalPrice: '₹12,000',
         audience: [
             'Software Engineers',
             'Developers',
@@ -521,6 +531,8 @@ export const courses = [
         tagline: '7 Days to Create, Automate, and Launch Your Own AI Projects',
         duration: '7 Days • Build & Launch',
         heroImage: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2670&auto=format&fit=crop',
+        price: '₹4,999',
+        originalPrice: '₹15,000',
         audience: [
             'Beginners',
             'Makers & Entrepreneurs',
@@ -582,6 +594,8 @@ export const courses = [
         tagline: 'Master Visual Automation to Build Complex AI Agents and Workflows',
         duration: '2 Days • Hands-on',
         heroImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop',
+        price: '₹1,499',
+        originalPrice: '₹8,000',
         audience: [
             'Automation Engineers',
             'Operations Managers',
@@ -637,6 +651,8 @@ export const courses = [
         tagline: '10x Your Coding Speed with Cursor, Copilot, and LLM-Driven Workflows',
         duration: '1 Week • Intensive',
         heroImage: 'https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=2706&auto=format&fit=crop',
+        price: '₹4,999',
+        originalPrice: '₹15,000',
         audience: [
             'Software Developers',
             'Full Stack Engineers',
@@ -696,6 +712,8 @@ export const courses = [
         tagline: 'Transform Your Office Workflow with Integrated AI Assistance',
         duration: '1 Week • Corporate Focus',
         heroImage: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=2664&auto=format&fit=crop',
+        price: '₹5,999',
+        originalPrice: '₹20,000',
         audience: [
             'Business Professionals',
             'Executive Assistants',
