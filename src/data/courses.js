@@ -27,6 +27,104 @@ export const courses = [
             { title: 'Weeks 4-6', focus: 'AI Workflows', outcomes: ['Data Analysis pipeline', 'Marketing automation', 'Content generation system'] },
             { title: 'Weeks 7-8', focus: 'Monetization Mastery', outcomes: ['Sales pitch development', 'Business launch strategy', 'Revenue models'] }
         ],
+        curriculum: [
+            {
+                week: 1,
+                title: "Foundation & The Art of Prompting",
+                focus: "Mastering the Language of LLMs",
+                days: [
+                    { day: "Day 1", topic: "The AI Landscape & LLM Architecture", description: "Understanding functionality vs. magic." },
+                    { day: "Day 2", topic: "Zero-Shot vs. Few-Shot Prompting", description: "Techniques to get instant results." },
+                    { day: "Day 3", topic: "Chain-of-Thought Reasoning", description: "Forcing complex logic extraction." },
+                    { day: "Day 4", topic: "The Perfect Context Window", description: "Managing token limits effectively." },
+                    { day: "Day 5", topic: "Hands-on Workshop: Prompt Library", description: "Building your personal asset kit." }
+                ]
+            },
+            {
+                week: 2,
+                title: "Visual Intelligence & Media",
+                focus: "Generative Art & Design Workflows",
+                days: [
+                    { day: "Day 1", topic: "Midjourney Deep Dive", description: "Parameters, aspect ratios, and chaos." },
+                    { day: "Day 2", topic: "Consistency in Characters", description: "Using seed values and reference images." },
+                    { day: "Day 3", topic: "AI for UI/UX Design", description: "Generating layouts and assets." },
+                    { day: "Day 4", topic: "Video Gen: Runway & Pika", description: "Animating static concepts." },
+                    { day: "Day 5", topic: "Project: Brand Identity Pack", description: "Full visual suite creation." }
+                ]
+            },
+            {
+                week: 3,
+                title: "No-Code Automation Systems",
+                focus: "Replacing Manual Work with Make.com",
+                days: [
+                    { day: "Day 1", topic: "Intro to Webhooks & APIs", description: "How the internet talks." },
+                    { day: "Day 2", topic: "Building your first Make Scenario", description: "Email to Slack notification." },
+                    { day: "Day 3", topic: "Data Parsing & Filtering", description: "Handling complex JSON outputs." },
+                    { day: "Day 4", topic: "Integrating AI into Automations", description: "Auto-drafting replies with GPT-4." },
+                    { day: "Day 5", topic: "Challenge: The Social Auto-Poster", description: "RSS -> Summary -> LinkedIn." }
+                ]
+            },
+            {
+                week: 4,
+                title: "Advanced n8n Workflows",
+                focus: "Enterprise-Grade Logic & Self-Hosting",
+                days: [
+                    { day: "Day 1", topic: "n8n architecture & Local Setup", description: "Running your own instance." },
+                    { day: "Day 2", topic: "Complex Routing & Merge nodes", description: "Handling conditional logic." },
+                    { day: "Day 3", topic: "Database Integrations (Postgres)", description: "Storing state and memory." },
+                    { day: "Day 4", topic: "Error Handling & Retries", description: "Building bulletproof flows." },
+                    { day: "Day 5", topic: "Project: Lead Enrichment Bot", description: "Scraping & qualifying leads." }
+                ]
+            },
+            {
+                week: 5,
+                title: "Building Custom AI Agents",
+                focus: "Autonomous Workers & Tool Use",
+                days: [
+                    { day: "Day 1", topic: "Agent Theory: Observation/Action", description: "How agents think." },
+                    { day: "Day 2", topic: "Building with Assistants API", description: "Knowledge retrieval basics." },
+                    { day: "Day 3", topic: "Function Calling Deep Dive", description: "Connecting LLMs to code." },
+                    { day: "Day 4", topic: "Multi-Agent Orchestration", description: "Manager vs. Worker agents." },
+                    { day: "Day 5", topic: "Project: The Research Agent", description: "Auto-browsing & report generation." }
+                ]
+            },
+            {
+                week: 6,
+                title: "AI-Powered Coding",
+                focus: "Software Development for Non-Coders",
+                days: [
+                    { day: "Day 1", topic: "Cursor IDE Mastery", description: "Coding at the speed of thought." },
+                    { day: "Day 2", topic: "V0.dev & Frontend Generation", description: "React components in seconds." },
+                    { day: "Day 3", topic: "Backend Logic with Replit Agent", description: "Setting up servers & DBs." },
+                    { day: "Day 4", topic: "Debugging & Refactoring", description: "Using AI to fix AI code." },
+                    { day: "Day 5", topic: "Project: SaaS MVP Build", description: "Launch a functional web app." }
+                ]
+            },
+            {
+                week: 7,
+                title: "Productization & Strategy",
+                focus: "Packaging Skills into Products",
+                days: [
+                    { day: "Day 1", topic: "Identifying AI Opportunities", description: "Where is the value?" },
+                    { day: "Day 2", topic: "Service-as-a-Software (SaaS)", description: "Productized service models." },
+                    { day: "Day 3", topic: "Pricing & Positioning", description: "Selling speed vs. outcomes." },
+                    { day: "Day 4", topic: "The 'Agency' Model", description: "Scaling with AI employees." },
+                    { day: "Day 5", topic: "Workshop: The Pitch Deck", description: "Crafting your offer." }
+                ]
+            },
+            {
+                week: 8,
+                title: "Launch & Monetization",
+                focus: "Go-to-Market & Scale",
+                days: [
+                    { day: "Day 1", topic: "Viral Content Strategy", description: "Marketing your AI tools." },
+                    { day: "Day 2", topic: "Distribution Channels", description: "Twitter, LinkedIn, ProductHunt." },
+                    { day: "Day 3", topic: "Sales Automation", description: "Inbound funnel setup." },
+                    { day: "Day 4", topic: "Legal & Ethics in AI Business", description: "Staying compliant." },
+                    { day: "Day 5", topic: "Graduation: Demo Day", description: "Showcasing your empire." }
+                ]
+            }
+        ],
         projects: [
             { title: 'Personal Productivity Dashboard', description: 'Build a centralized dashboard in Notion AI automating daily tasks.' },
             { title: 'Automated Content Engine', description: 'Create an end-to-end pipeline from ideation to social distribution.' },
@@ -68,12 +166,34 @@ export const courses = [
             engineering: ['LangChain', 'LlamaIndex', 'LangGraph', 'Vercel', 'Pinecone', 'LangSmith']
         },
         structure: [
-            { title: 'Sprint 1', focus: 'Building ChatGPT-Level Apps', outcomes: ['Streaming responses', 'Multi-model fallback'] },
-            { title: 'Sprint 2', focus: 'AI Automation Systems', outcomes: ['End-to-end pipelines', 'Personalized content gen'] },
-            { title: 'Sprint 3', focus: 'Custom RAG (Atlas)', outcomes: ['Second brain creation', 'Multi-modal querying'] },
-            { title: 'Sprint 4', focus: 'Production Deployment', outcomes: ['Tracing, monitoring, security', 'Cost optimization'] },
-            { title: 'Sprint 5', focus: 'AI Agents', outcomes: ['Tool-calling agents', 'Autonomous coding'] },
-            { title: 'Sprint 6', focus: 'Multi-Agent Systems (Orion)', outcomes: ['Collaborative agent teams', 'State management'] }
+            { title: 'Week 1', focus: 'RAG & Architectures', outcomes: ['Hybrid Search', 'Vector DBs', 'DSPy'] },
+            { title: 'Week 2', focus: 'Agentic Systems', outcomes: ['Multi-Agent Orchestration', 'LangGraph', 'Deep Evals'] }
+        ],
+        curriculum: [
+            {
+                week: 1,
+                title: "RAG & Cognitive Architectures",
+                focus: "Building Systems That Remember",
+                days: [
+                    { day: "Day 1", topic: "The Transformer & Token Economics", description: "Deep dive into attention mechanisms and cost modeling." },
+                    { day: "Day 2", topic: "Vector Database Fluency", description: "Pinecone, Weaviate, and HNSW indexes explained." },
+                    { day: "Day 3", topic: "Advanced RAG Pipelines", description: "Hybrid search, reranking (Cohere), and query expansion." },
+                    { day: "Day 4", topic: "Structured Output & Function Calling", description: "Forcing JSON and connecting to external APIs." },
+                    { day: "Day 5", topic: "Buildathon: The 'Second Brain'", description: "Ship a multi-modal RAG system with retrieval." }
+                ]
+            },
+            {
+                week: 2,
+                title: "Agents, Swarms & Production",
+                focus: "From Chatbots to Autonomous Workers",
+                days: [
+                    { day: "Day 1", topic: "Agentic Patterns (ReAct)", description: "Building reasoning loops from scratch." },
+                    { day: "Day 2", topic: "Multi-Agent Orchestration", description: "LangGraph state machines and swarm intelligence." },
+                    { day: "Day 3", topic: "LLMOps & Evaluations", description: "Using LangSmith/Arize to stop hallucinations." },
+                    { day: "Day 4", topic: "Deployment & Latency", description: "Vercel streaming, edge functions, and caching." },
+                    { day: "Day 5", topic: "The Final Ship", description: "Deploying a SaaS-ready autonomous agent." }
+                ]
+            }
         ],
         projects: [
             { title: 'Atlas: Second Brain RAG', description: 'Personal knowledge base with multi-modal ingestion and query engine.' },

@@ -1,33 +1,78 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, Briefcase, Rocket, ChevronDown, Check, Lock } from 'lucide-react';
+import { Users, Briefcase, Rocket, ChevronDown, Check, Zap, Target, Crown } from 'lucide-react';
 
 export function AudienceSection({ audience }) {
+    // Custom icons map for a premium feel
     const icons = [Users, Briefcase, Rocket];
+    const gradients = [
+        "from-[#00ff88]/20 to-[#00ff88]/5",
+        "from-purple-500/20 to-purple-500/5",
+        "from-blue-500/20 to-blue-500/5"
+    ];
 
     return (
-        <section className="py-32 relative z-10">
-            <div className="max-w-[1200px] mx-auto px-6">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Transform Your Career</h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg">Designed for professionals ready to lead the AI revolution.</p>
+        <section className="py-32 relative z-10 overflow-hidden">
+            {/* Background elements */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[400px] bg-[#00ff88]/5 blur-[120px] rounded-full pointer-events-none" />
+
+            <div className="max-w-[1200px] mx-auto px-6 relative">
+                <div className="text-center mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-bold uppercase tracking-widest mb-6"
+                    >
+                        <Target size={14} className="text-[#00ff88]" />
+                        Who Is This For?
+                    </motion.div>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight"
+                    >
+                        Transform Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00ff88] to-[#00b8ff]">Career Trajectory</span>
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
+                    >
+                        This isn't just a course. It's an accelerator for professionals ready to dominate the AI revolution.
+                    </motion.p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-3 gap-6">
                     {audience.slice(0, 3).map((item, idx) => {
                         const Icon = icons[idx] || Users;
                         return (
                             <motion.div
                                 key={idx}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: idx * 0.1 }}
                                 whileHover={{ y: -10 }}
-                                className="bg-[#121216]/50 backdrop-blur-md border border-white/10 p-8 rounded-3xl h-[300px] flex flex-col justify-between group hover:border-[#00ff88]/30 transition-all shadow-lg hover:shadow-[0_0_30px_rgba(0,255,136,0.1)]"
+                                className="group relative bg-[#121216] border border-white/10 p-8 rounded-[32px] h-[320px] flex flex-col justify-between overflow-hidden shadow-2xl"
                             >
-                                <div className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-[#00ff88] group-hover:bg-[#00ff88] group-hover:text-black transition-all">
-                                    <Icon size={28} />
+                                {/* Hover Gradient Fill */}
+                                <div className={`absolute inset-0 bg-gradient-to-br ${gradients[idx]} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+
+                                <div className="relative z-10">
+                                    <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-500 border border-white/5 group-hover:border-white/20 shadow-lg">
+                                        <Icon size={32} strokeWidth={1.5} />
+                                    </div>
+                                    <h3 className="text-2xl font-bold text-white mb-3 leading-tight group-hover:text-[#00ff88] transition-colors">
+                                        {item}
+                                    </h3>
+                                    <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors">
+                                        Unlock new capabilities and separate yourself from the obsolete workforce.
+                                    </p>
                                 </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-white mb-3">{item}</h3>
-                                    <p className="text-gray-400 leading-relaxed text-sm">Ideally suited for those looking to integrate AI into high-impact workflows.</p>
+
+                                <div className="relative z-10 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-gray-500 group-hover:text-white transition-colors mt-auto">
+                                    <span className="w-8 h-[2px] bg-gray-700 group-hover:bg-[#00ff88] transition-colors" />
+                                    Perfect Match
                                 </div>
                             </motion.div>
                         )
@@ -38,6 +83,7 @@ export function AudienceSection({ audience }) {
     );
 }
 
+// CurriculumTimeline remains unchanged as fallback
 export function CurriculumTimeline({ structure }) {
     const [expanded, setExpanded] = useState(0);
 

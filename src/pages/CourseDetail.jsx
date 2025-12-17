@@ -10,6 +10,10 @@ import { Check, Award, Lock, MessageSquare, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ViralEnrollmentModal from '../components/checkout/ViralEnrollmentModal';
 
+import ViralCurriculum from '../components/course/ViralCurriculum';
+
+import StickyEnrollmentBar from '../components/checkout/StickyEnrollmentBar';
+
 export default function CourseDetail() {
     const { slug } = useParams();
     const course = courses.find((c) => c.slug === slug);
@@ -33,7 +37,11 @@ export default function CourseDetail() {
 
             <MasterySection skills={course.skills} tools={course.tools} />
 
-            <CurriculumTimeline structure={course.structure} />
+            {course.curriculum ? (
+                <ViralCurriculum curriculum={course.curriculum} />
+            ) : (
+                <CurriculumTimeline structure={course.structure} />
+            )}
 
             {/* Visual Spacer/Divider between Curriculum and Artifacts */}
             <div style={{ height: '80px' }} className="bg-gradient-to-b from-[#0a0a0f] via-[#0d0d14] to-[#0d0d12] flex items-center justify-center">
@@ -41,41 +49,6 @@ export default function CourseDetail() {
             </div>
 
             <ArtifactsShowcase projects={course.projects} />
-
-            {/* Outcomes & Certification (Inline for now) */}
-            <section className="py-32 bg-[#0a0a0f] border-t border-white/5">
-                <div className="max-w-[1200px] mx-auto px-6">
-                    <div className="grid md:grid-cols-3 gap-12 text-center">
-                        <div className="flex flex-col items-center gap-4">
-                            <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-[#00ff88]">
-                                <Award size={32} />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold text-white">Certification</h3>
-                                <p className="text-gray-400">Industry-recognized credential</p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col items-center gap-4">
-                            <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-[#00ff88]">
-                                <Lock size={32} />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold text-white">Lifetime Access</h3>
-                                <p className="text-gray-400">Revisit content anytime</p>
-                            </div>
-                        </div>
-                        <div className="flex flex-col items-center gap-4">
-                            <div className="w-16 h-16 rounded-full bg-white/5 flex items-center justify-center text-[#00ff88]">
-                                <MessageSquare size={32} />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold text-white">Private Discord</h3>
-                                <p className="text-gray-400">24/7 peer support</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* Final CTA */}
             <section className="py-40 relative overflow-hidden">
@@ -115,6 +88,11 @@ export default function CourseDetail() {
                 isOpen={isEnrollOpen}
                 onClose={() => setIsEnrollOpen(false)}
                 courseTitle={course.title}
+            />
+
+            <StickyEnrollmentBar
+                onEnroll={() => setIsEnrollOpen(true)}
+                price="$299" // You could arguably pass this from course data if avail
             />
         </div>
     );
