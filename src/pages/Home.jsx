@@ -1,9 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
 import TrustedBy from '../components/TrustedBy';
-import Programs from '../components/Programs';
-import Masterminds from '../components/Masterminds';
-import Bootcamps from '../components/Bootcamps';
+import AllCourses from '../components/AllCourses';
 import SkillsGrid from '../components/SkillsGrid';
 import Workshops from '../components/Workshops';
 import ToolsStack from '../components/ToolsStack';
@@ -15,20 +13,15 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import StickyBottomBar from '../components/layout/StickyBottomBar';
 import SectionDivider from '../components/ui/SectionDivider';
+import ProminentDivider from '../components/ui/ProminentDivider';
 
 export default function Home() {
     return (
-        <>
+        <div className="min-h-screen">
             <Navbar />
             <Hero />
             <SectionDivider />
-            <TrustedBy />
-            <SectionDivider />
-            <Programs />
-            <SectionDivider />
-            <Masterminds />
-            <SectionDivider />
-            <Bootcamps />
+            <AllCourses />
             <SectionDivider />
             <SkillsGrid />
             <SectionDivider />
@@ -41,10 +34,12 @@ export default function Home() {
             <Testimonials />
             <SectionDivider />
             <Consulting />
+            <ProminentDivider />
+            <TrustedBy />
             <SectionDivider />
             <CallToAction />
             <Footer />
             <StickyBottomBar />
-        </>
+        </div>
     );
 }
