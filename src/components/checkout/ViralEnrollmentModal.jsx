@@ -33,7 +33,7 @@ export default function ViralEnrollmentModal({ isOpen, onClose, courseTitle }) {
         setStep('processing');
 
         try {
-            const response = await fetch('http://localhost:5000/api/intake', {
+            const response = await fetch('/api/intake', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
