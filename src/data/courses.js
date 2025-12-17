@@ -695,7 +695,7 @@ export const courses = [
         title: 'Microsoft 365 Copilot Mastery',
         tagline: 'Transform Your Office Workflow with Integrated AI Assistance',
         duration: '1 Week • Corporate Focus',
-        heroImage: 'https://images.unsplash.com/photo-1633419461186-7d40a23933a7?q=80&w=2532&auto=format&fit=crop',
+        heroImage: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?q=80&w=2664&auto=format&fit=crop',
         audience: [
             'Business Professionals',
             'Executive Assistants',
