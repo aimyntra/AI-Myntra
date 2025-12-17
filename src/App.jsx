@@ -6,6 +6,7 @@ import CourseDetail from './pages/CourseDetail';
 
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
+import MentorApply from './pages/MentorApply';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/programs/:slug" element={<CourseDetail />} />
           <Route path="/sign-in/*" element={<SignInPage />} />
           <Route path="/sign-up/*" element={<SignUpPage />} />
+          <Route path="/apply-mentor" element={<MentorApply />} />
         </Routes>
       </div>
     </Router>

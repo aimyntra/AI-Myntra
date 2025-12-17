@@ -158,9 +158,11 @@ export default function MobileMenu({ onClose }) {
                     </div>
                 </SignedIn>
 
-                <Button variant="secondary" className="w-full justify-center !py-4 text-lg">
-                    Apply as Mentor
-                </Button>
+                <Link to="/apply-mentor" onClick={onClose}>
+                    <Button variant="secondary" className="w-full justify-center !py-4 text-lg">
+                        Apply as Mentor
+                    </Button>
+                </Link>
 
                 <div className="flex items-center justify-center gap-6 mt-6 text-gray-500">
                     <a href="#" className="hover:text-white transition-colors">Twitter</a>

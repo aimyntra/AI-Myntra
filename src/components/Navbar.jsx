@@ -55,6 +55,11 @@ export default function Navbar() {
 
                 {/* Desktop CTAs */}
                 <div className="hidden md:flex items-center gap-6 relative">
+                    <Link to="/apply-mentor" className="hidden lg:block text-sm font-medium text-gray-400 hover:text-white transition-colors mr-4">
+                        Apply as Mentor
+                    </Link>
+
+                    <div className="hidden lg:block h-6 w-px bg-white/10 mx-2"></div>
                     <SignedOut>
                         <Link to="/sign-in" className="text-sm font-semibold text-gray-300 hover:text-white px-5 py-2.5 rounded-lg border border-white/10 hover:border-white/30 hover:bg-white/5 transition-all">
                             Sign In
