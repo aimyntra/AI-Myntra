@@ -661,7 +661,7 @@ export const courses = [
         curriculum: [
             {
                 week: 1,
-                title: "Velocity & "Vibe Coding"",
+                title: "Velocity & 'Vibe Coding'",
                 focus: "Thinking in Systems, Not Syntax",
                 days: [
                     { day: "Day 1", topic: "Setting up the cockpit", description: "Cursor configuration, rules, and local models." },
