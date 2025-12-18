@@ -8,7 +8,7 @@ import { AudienceSection, CurriculumTimeline } from '../components/course/Course
 import { MasterySection, ArtifactsShowcase } from '../components/course/CourseContent';
 import { Check, Award, Lock, MessageSquare, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import ViralEnrollmentModal from '../components/checkout/ViralEnrollmentModal';
+import PaymentModal from '../components/checkout/PaymentModal';
 
 import ViralCurriculum from '../components/course/ViralCurriculum';
 
@@ -84,10 +84,11 @@ export default function CourseDetail() {
 
             <Footer />
 
-            <ViralEnrollmentModal
+            <PaymentModal
                 isOpen={isEnrollOpen}
                 onClose={() => setIsEnrollOpen(false)}
                 courseTitle={course.title}
+                price={course.price}
             />
 
             <StickyEnrollmentBar
