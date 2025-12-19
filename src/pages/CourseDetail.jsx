@@ -89,6 +89,7 @@ export default function CourseDetail() {
                 onClose={() => setIsEnrollOpen(false)}
                 courseTitle={course.title}
                 price={course.price}
+                courseSlug={course.slug}
             />
 
             <StickyEnrollmentBar
