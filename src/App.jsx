@@ -8,6 +8,8 @@ import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import MentorApply from './pages/MentorApply';
 import Dashboard from './pages/Dashboard';
+import CoursePlayer from './pages/CoursePlayer';
+import Certificates from './pages/Certificates';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/sign-up/*" element={<SignUpPage />} />
           <Route path="/apply-mentor" element={<MentorApply />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/learn/:courseSlug" element={<CoursePlayer />} />
+          <Route path="/certificates" element={<Certificates />} />
         </Routes>
       </div>
     </Router>
