@@ -26,11 +26,15 @@ export default async function handler(req, res) {
         return res.status(200).end();
     }
 
-    const { path } = req.query;
-    const endpoint = path ? path[0] : '';
+    // Parse the path from the URL
+    const urlPath = req.url.replace('/api/', '');
+    const pathParts = urlPath.split('/');
+    const endpoint = pathParts[0];
+
+    console.log('Request:', req.method, urlPath, endpoint);
 
     try {
-        // Route handling
+        // CREATE ORDER - Razorpay
         if (endpoint === 'create-order' && req.method === 'POST') {
             const { amount, currency = 'INR', receipt } = req.body;
 
@@ -41,9 +45,10 @@ export default async function handler(req, res) {
             };
 
             const order = await razorpay.orders.create(options);
-            return res.json(order);
+            return res.status(200).json(order);
         }
 
+        // VERIFY PAYMENT - Razorpay
         if (endpoint === 'verify-payment' && req.method === 'POST') {
             const { razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
             const body = razorpay_order_id + "|" + razorpay_payment_id;
@@ -54,12 +59,13 @@ export default async function handler(req, res) {
                 .digest('hex');
 
             if (expectedSignature === razorpay_signature) {
-                return res.json({ success: true, message: 'Payment verified successfully' });
+                return res.status(200).json({ success: true, message: 'Payment verified successfully' });
             } else {
                 return res.status(400).json({ success: false, error: 'Invalid signature' });
             }
         }
 
+        // ENROLL
         if (endpoint === 'enroll' && req.method === 'POST') {
             const { clerkUserId, courseSlug, paymentId } = req.body;
 
@@ -80,29 +86,32 @@ export default async function handler(req, res) {
                 return res.status(409).json({ error: 'Already enrolled in this course' });
             }
 
-            return res.json({ success: true, enrollment: result.rows[0] });
+            return res.status(200).json({ success: true, enrollment: result.rows[0] });
         }
 
+        // GET ENROLLMENTS
         if (endpoint === 'enrollments' && req.method === 'GET') {
-            const userId = path[1];
+            const userId = pathParts[1];
             const query = `SELECT * FROM enrollments WHERE clerk_user_id = $1 ORDER BY enrolled_at DESC;`;
             const result = await pool.query(query, [userId]);
-            return res.json({ success: true, enrollments: result.rows });
+            return res.status(200).json({ success: true, enrollments: result.rows });
         }
 
+        // CHECK ENROLLMENT
         if (endpoint === 'enrollment' && req.method === 'GET') {
-            const [, userId, courseSlug] = path;
+            const userId = pathParts[1];
+            const courseSlug = pathParts[2];
             const query = `SELECT * FROM enrollments WHERE clerk_user_id = $1 AND course_slug = $2;`;
             const result = await pool.query(query, [userId, courseSlug]);
 
             if (result.rowCount === 0) {
-                return res.json({ enrolled: false });
+                return res.status(200).json({ enrolled: false });
             }
-            return res.json({ enrolled: true, enrollment: result.rows[0] });
+            return res.status(200).json({ enrolled: true, enrollment: result.rows[0] });
         }
 
         // Default 404
-        return res.status(404).json({ error: 'Endpoint not found' });
+        return res.status(404).json({ error: 'Endpoint not found', path: urlPath });
 
     } catch (error) {
         console.error('API Error:', error);
