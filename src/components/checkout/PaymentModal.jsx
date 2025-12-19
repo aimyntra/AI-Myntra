@@ -57,6 +57,13 @@ export default function PaymentModal({ isOpen, onClose, price, courseTitle, init
                 })
             });
 
+            // Check if response is OK
+            if (!result.ok) {
+                const errorText = await result.text();
+                console.error('API Error:', errorText);
+                throw new Error(`Server error: ${result.status}`);
+            }
+
             const order = await result.json();
 
             if (!order || !order.id) {
