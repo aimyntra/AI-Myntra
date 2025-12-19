@@ -95,6 +95,21 @@ export default function PaymentModal({ isOpen, onClose, price, courseTitle, init
                         const verifyData = await verifyRes.json();
 
                         if (verifyData.success) {
+                            // Create enrollment after successful payment
+                            const enrollUrl = "/api/enroll";
+                            const enrollRes = await fetch(enrollUrl, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({
+                                    clerkUserId: window.Clerk?.user?.id,
+                                    courseSlug: window.location.pathname.split('/').pop(),
+                                    paymentId: response.razorpay_payment_id
+                                })
+                            });
+
+                            const enrollData = await enrollRes.json();
+                            console.log('Enrollment created:', enrollData);
+
                             setStep('success');
                             triggerConfetti();
                         } else {
