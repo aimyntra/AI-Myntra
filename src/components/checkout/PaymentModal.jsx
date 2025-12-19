@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Lock, Check, CreditCard, Shield } from 'lucide-react';
+import { useUser } from '@clerk/clerk-react';
+import { useNavigate } from 'react-router-dom';
 import confetti from 'canvas-confetti';
 
 const loadScript = (src) => {
@@ -17,7 +19,9 @@ const loadScript = (src) => {
     });
 };
 
-export default function PaymentModal({ isOpen, onClose, price, courseTitle, initialValues = {} }) {
+export default function PaymentModal({ isOpen, onClose, price, courseTitle, courseSlug, initialValues = {} }) {
+    const { user } = useUser();
+    const navigate = useNavigate();
     const [step, setStep] = useState('details'); // details, processing, success
     const [formData, setFormData] = useState({
         name: initialValues.name || '',
@@ -96,22 +100,33 @@ export default function PaymentModal({ isOpen, onClose, price, courseTitle, init
 
                         if (verifyData.success) {
                             // Create enrollment after successful payment
-                            const enrollUrl = "/api/enroll";
-                            const enrollRes = await fetch(enrollUrl, {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({
-                                    clerkUserId: window.Clerk?.user?.id,
-                                    courseSlug: window.location.pathname.split('/').pop(),
-                                    paymentId: response.razorpay_payment_id
-                                })
-                            });
+                            try {
+                                const enrollUrl = "/api/enroll";
+                                const enrollRes = await fetch(enrollUrl, {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({
+                                        clerkUserId: user?.id,
+                                        courseSlug: courseSlug,
+                                        paymentId: response.razorpay_payment_id
+                                    })
+                                });
 
-                            const enrollData = await enrollRes.json();
-                            console.log('Enrollment created:', enrollData);
+                                const enrollData = await enrollRes.json();
+                                console.log('✅ Enrollment created:', enrollData);
 
-                            setStep('success');
-                            triggerConfetti();
+                                setStep('success');
+                                triggerConfetti();
+
+                                // Redirect to dashboard after 2 seconds
+                                setTimeout(() => {
+                                    navigate('/dashboard');
+                                }, 2000);
+                            } catch (enrollError) {
+                                console.error('Enrollment error:', enrollError);
+                                setStep('success'); // Still show success even if enrollment fails
+                                triggerConfetti();
+                            }
                         } else {
                             setError('Payment verification failed.');
                             setStep('details');
