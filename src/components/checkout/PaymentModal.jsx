@@ -108,7 +108,9 @@ export default function PaymentModal({ isOpen, onClose, price, courseTitle, cour
                                     body: JSON.stringify({
                                         clerkUserId: user?.id,
                                         courseSlug: courseSlug,
-                                        paymentId: response.razorpay_payment_id
+                                        paymentId: response.razorpay_payment_id,
+                                        name: formData.name,
+                                        email: formData.email
                                     })
                                 });
 

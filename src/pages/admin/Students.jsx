@@ -14,11 +14,10 @@ export default function Students() {
 
     const fetchStudents = async () => {
         try {
-            const response = await fetch('/api/admin/stats');
+            const response = await fetch('/api/admin/students');
             const data = await response.json();
             if (data.success) {
-                // For now use enrollment data as student data
-                setStudents(data.recentEnrollments || []);
+                setStudents(data.students || []);
             }
         } catch (error) {
             console.error('Error fetching students:', error);

@@ -129,14 +129,21 @@ export default function AdminCourseManagement() {
                                 </div>
 
                                 <div className="flex items-center gap-2 pt-2">
-                                    <button className="flex-1 flex items-center justify-center gap-2 p-2.5 bg-white/5 border border-white/10 rounded-xl text-sm font-semibold hover:bg-white/10 transition-colors">
+                                    <Link
+                                        to={course.isDb ? `/admin/courses/edit/${course.slug}` : '#'}
+                                        className={`flex-1 flex items-center justify-center gap-2 p-2.5 border border-white/10 rounded-xl text-sm font-semibold transition-colors ${course.isDb ? 'bg-white/5 hover:bg-white/10' : 'bg-white/5 opacity-50 cursor-not-allowed'}`}
+                                    >
                                         <Edit2 size={16} />
                                         Edit
-                                    </button>
-                                    <button className="flex-1 flex items-center justify-center gap-2 p-2.5 bg-white/5 border border-white/10 rounded-xl text-sm font-semibold hover:bg-white/10 transition-colors">
+                                    </Link>
+                                    <Link
+                                        to={`/programs/${course.slug}`}
+                                        target="_blank"
+                                        className="flex-1 flex items-center justify-center gap-2 p-2.5 bg-white/5 border border-white/10 rounded-xl text-sm font-semibold hover:bg-white/10 transition-colors"
+                                    >
                                         <Eye size={16} />
                                         View
-                                    </button>
+                                    </Link>
                                     <button className="p-2.5 bg-white/5 border border-white/10 rounded-xl text-red-400 hover:bg-red-500/10 hover:border-red-500/20 transition-all">
                                         <Trash2 size={16} />
                                     </button>
