@@ -22,7 +22,7 @@ export default function Dashboard() {
 
     const fetchEnrollments = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/enrollments/${user.id}`);
+            const response = await fetch(`/api/enrollments/${user.id}`);
             const data = await response.json();
 
             if (data.success) {

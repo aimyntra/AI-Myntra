@@ -29,7 +29,7 @@ export default function CoursePlayer() {
 
     const checkEnrollment = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/enrollment/${user.id}/${courseSlug}`);
+            const response = await fetch(`/api/enrollment/${user.id}/${courseSlug}`);
             const data = await response.json();
             setIsEnrolled(data.enrolled);
         } catch (error) {
@@ -42,7 +42,7 @@ export default function CoursePlayer() {
 
     const fetchProgress = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/progress/${user.id}/${courseSlug}`);
+            const response = await fetch(`/api/progress/${user.id}/${courseSlug}`);
             const data = await response.json();
 
             if (data.success) {
@@ -62,7 +62,7 @@ export default function CoursePlayer() {
 
         setMarking(true);
         try {
-            const response = await fetch('http://localhost:5000/api/progress/update', {
+            const response = await fetch('/api/progress/update', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({

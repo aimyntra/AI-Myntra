@@ -21,7 +21,7 @@ export default function Certificates() {
 
     const fetchCertificates = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/certificate/user/${user.id}`);
+            const response = await fetch(`/api/certificate/user/${user.id}`);
             const data = await response.json();
 
             if (data.success) {
