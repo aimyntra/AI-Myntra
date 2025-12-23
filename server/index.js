@@ -8,6 +8,7 @@ import crypto from 'crypto';
 import enrollmentRoutes from './routes/enrollment.js';
 import progressRoutes from './routes/progress.js';
 import certificateRoutes from './routes/certificate.js';
+import adminRoutes from './routes/admin.js';
 
 const app = express();
 const PORT = 5000;
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use('/api', enrollmentRoutes);
 app.use('/api', progressRoutes);
 app.use('/api/certificate', certificateRoutes);
+app.use('/api/admin', adminRoutes);
 
 // API Endpoint to capture leads
 app.post('/api/intake', async (req, res) => {

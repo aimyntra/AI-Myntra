@@ -5,13 +5,24 @@ const router = express.Router();
 
 // Create enrollment after successful payment
 router.post('/enroll', async (req, res) => {
-    const { clerkUserId, courseSlug, paymentId } = req.body;
+    const { clerkUserId, courseSlug, paymentId, name, email } = req.body;
 
     if (!clerkUserId || !courseSlug) {
         return res.status(400).json({ error: 'User ID and Course Slug are required' });
     }
 
     try {
+        // 1. Capture student details for Admin Dashboard
+        if (name && email) {
+            await pool.query(`
+                INSERT INTO leads (clerk_user_id, full_name, email)
+                VALUES ($1, $2, $3)
+                ON CONFLICT (clerk_user_id) 
+                DO UPDATE SET full_name = EXCLUDED.full_name, email = EXCLUDED.email;
+            `, [clerkUserId, name, email]);
+        }
+
+        // 2. Create Enrollment
         const query = `
             INSERT INTO enrollments (clerk_user_id, course_slug, payment_id)
             VALUES ($1, $2, $3)
