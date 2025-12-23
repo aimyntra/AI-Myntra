@@ -15,12 +15,27 @@ import {
     GraduationCap,
     Clock
 } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
-import { UserButton } from '@clerk/clerk-react';
+import { Link, useLocation, Navigate } from 'react-router-dom';
+import { UserButton, useUser } from '@clerk/clerk-react';
 
 export default function AdminLayout({ children }) {
+    const { user, isLoaded, isSignedIn } = useUser();
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const location = useLocation();
+
+    const isAdmin = user?.primaryEmailAddress?.emailAddress === 'kumawatnaresh@gmail.com';
+
+    if (!isLoaded) {
+        return (
+            <div className="min-h-screen bg-[#050507] flex items-center justify-center">
+                <div className="w-12 h-12 border-4 border-[#00ff88] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+        );
+    }
+
+    if (!isSignedIn || !isAdmin) {
+        return <Navigate to="/" replace />;
+    }
 
     const menuItems = [
         { icon: LayoutDashboard, label: 'Dashboard', path: '/admin' },
@@ -31,12 +46,12 @@ export default function AdminLayout({ children }) {
     ];
 
     return (
-        <div className="min-h-screen bg-[#050507] text-white flex">
+        <div className="min-h-screen bg-[#050507] text-white flex overflow-hidden">
             {/* Sidebar */}
             <aside
                 className={`
                     ${isSidebarOpen ? 'w-64' : 'w-20'} 
-                    bg-[#0a0a0f] border-r border-white/5 transition-all duration-300 flex flex-col fixed h-full z-50
+                    bg-[#0a0a0f] border-r border-white/5 transition-all duration-300 flex flex-col shrink-0 h-screen sticky top-0 z-50
                 `}
             >
                 <div className="p-6 flex items-center justify-between">
@@ -56,7 +71,7 @@ export default function AdminLayout({ children }) {
                     )}
                 </div>
 
-                <nav className="flex-1 px-4 py-6 space-y-2">
+                <nav className="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
                     {menuItems.map((item) => (
                         <Link
                             key={item.path}
@@ -78,7 +93,7 @@ export default function AdminLayout({ children }) {
                     ))}
                 </nav>
 
-                <div className="p-4 border-t border-white/5">
+                <div className="p-4 border-t border-white/5 shrink-0">
                     <div className="flex items-center gap-4 px-4 py-3">
                         <UserButton afterSignOutUrl="/" />
                         {isSidebarOpen && (
@@ -92,9 +107,9 @@ export default function AdminLayout({ children }) {
             </aside>
 
             {/* Main Content */}
-            <main className={`flex-1 transition-all duration-300 ${isSidebarOpen ? 'ml-64' : 'ml-20'}`}>
+            <main className="flex-1 flex flex-col min-w-0 h-screen overflow-hidden">
                 {/* Top Header */}
-                <header className="h-16 border-b border-white/5 bg-[#050507]/50 backdrop-blur-xl flex items-center justify-between px-8 sticky top-0 z-40">
+                <header className="h-16 border-b border-white/5 bg-[#050507]/50 backdrop-blur-xl flex items-center justify-between px-8 shrink-0 z-40">
                     <button
                         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
                         className="p-2 hover:bg-white/5 rounded-lg text-gray-400 transition-colors"
@@ -112,8 +127,10 @@ export default function AdminLayout({ children }) {
                     </div>
                 </header>
 
-                <div className="p-8">
-                    {children}
+                <div className="flex-1 overflow-y-auto p-8">
+                    <div className="max-w-[1600px] mx-auto">
+                        {children}
+                    </div>
                 </div>
             </main>
         </div>

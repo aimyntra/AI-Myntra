@@ -19,7 +19,6 @@ import {
 import AdminLayout from '../../components/admin/AdminLayout';
 
 export default function AdminDashboard() {
-    const { user, isLoaded: isUserLoaded, isSignedIn } = useUser();
     const [stats, setStats] = useState({
         totalRevenue: 0,
         totalStudents: 0,
@@ -30,15 +29,9 @@ export default function AdminDashboard() {
     const [recentEnrollments, setRecentEnrollments] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const isAdmin = user?.primaryEmailAddress?.emailAddress === 'kumawatnaresh@gmail.com';
-
     useEffect(() => {
-        if (isUserLoaded && isSignedIn && isAdmin) {
-            fetchAdminStats();
-        } else if (isUserLoaded && (!isSignedIn || !isAdmin)) {
-            setLoading(false);
-        }
-    }, [isUserLoaded, isSignedIn, isAdmin]);
+        fetchAdminStats();
+    }, []);
 
     const fetchAdminStats = async () => {
         try {
@@ -57,16 +50,14 @@ export default function AdminDashboard() {
         }
     };
 
-    if (!isUserLoaded || (loading && isSignedIn && isAdmin)) {
+    if (loading) {
         return (
-            <div className="min-h-screen bg-[#050507] flex items-center justify-center">
-                <div className="w-12 h-12 border-4 border-[#00ff88] border-t-transparent rounded-full animate-spin"></div>
-            </div>
+            <AdminLayout>
+                <div className="flex items-center justify-center min-h-[400px]">
+                    <div className="w-12 h-12 border-4 border-[#00ff88] border-t-transparent rounded-full animate-spin"></div>
+                </div>
+            </AdminLayout>
         );
-    }
-
-    if (!isSignedIn || !isAdmin) {
-        return <Navigate to="/" replace />;
     }
 
     const statCards = [

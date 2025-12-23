@@ -11,6 +11,7 @@ import {
     Copy,
     ExternalLink
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import AdminLayout from '../../components/admin/AdminLayout';
 import { courses } from '../../data/courses';
 
@@ -28,7 +29,13 @@ export default function AdminCourseManagement() {
             const response = await fetch('/api/admin/courses');
             const data = await response.json();
             if (data.success) {
-                setDbCourses(data.courses);
+                // Normalize DB courses to match static structure where needed
+                const normalizedDb = (data.courses || []).map(c => ({
+                    ...c,
+                    heroImage: c.image_url, // fallback
+                    isDb: true
+                }));
+                setDbCourses(normalizedDb);
             }
         } catch (error) {
             console.error('Error fetching courses:', error);
@@ -37,11 +44,11 @@ export default function AdminCourseManagement() {
         }
     };
 
-    // Combine static and dynamic for now, or just use dynamic
+    // Combine static and dynamic
     const allCourses = [...dbCourses, ...courses];
 
     const filteredCourses = allCourses.filter(course =>
-        course.title.toLowerCase().includes(searchTerm.toLowerCase())
+        (course.title || '').toLowerCase().includes(searchTerm.toLowerCase())
     );
 
     return (
@@ -89,7 +96,7 @@ export default function AdminCourseManagement() {
                         >
                             <div className="relative aspect-video">
                                 <img
-                                    src={course.image}
+                                    src={course.heroImage || course.image_url || 'https://images.unsplash.com/photo-1677442136019-21780ecad995'}
                                     alt={course.title}
                                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />

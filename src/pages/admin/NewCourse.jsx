@@ -433,7 +433,7 @@ export default function NewCourse() {
                 </form>
 
                 {/* Footer Controls */}
-                <div className="fixed bottom-0 left-0 right-0 p-4 bg-[#050507]/80 backdrop-blur-xl border-t border-white/10 z-[100] md:left-64">
+                <div className="sticky bottom-0 left-0 right-0 p-4 bg-[#050507]/90 backdrop-blur-xl border-t border-white/10 z-[100] mt-auto">
                     <div className="max-w-4xl mx-auto flex items-center justify-between">
                         <button
                             type="button"
