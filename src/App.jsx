@@ -10,6 +10,8 @@ import MentorApply from './pages/MentorApply';
 import Dashboard from './pages/Dashboard';
 import CoursePlayer from './pages/CoursePlayer';
 import Certificates from './pages/Certificates';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminCourseManagement from './pages/admin/AdminCourseManagement';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/learn/:courseSlug" element={<CoursePlayer />} />
           <Route path="/certificates" element={<Certificates />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/courses" element={<AdminCourseManagement />} />
         </Routes>
       </div>
     </Router>
