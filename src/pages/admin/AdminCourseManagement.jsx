@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
     Plus,
@@ -16,8 +16,31 @@ import { courses } from '../../data/courses';
 
 export default function AdminCourseManagement() {
     const [searchTerm, setSearchTerm] = useState('');
+    const [dbCourses, setDbCourses] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const filteredCourses = courses.filter(course =>
+    useEffect(() => {
+        fetchCourses();
+    }, []);
+
+    const fetchCourses = async () => {
+        try {
+            const response = await fetch('/api/admin/courses');
+            const data = await response.json();
+            if (data.success) {
+                setDbCourses(data.courses);
+            }
+        } catch (error) {
+            console.error('Error fetching courses:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    // Combine static and dynamic for now, or just use dynamic
+    const allCourses = [...dbCourses, ...courses];
+
+    const filteredCourses = allCourses.filter(course =>
         course.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
 
@@ -29,10 +52,12 @@ export default function AdminCourseManagement() {
                         <h1 className="text-3xl font-bold mb-2">Course Management</h1>
                         <p className="text-gray-400">Create, edit, and manage your learning content.</p>
                     </div>
-                    <button className="flex items-center gap-2 px-6 py-3 bg-[#00ff88] text-black font-bold rounded-xl hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,255,136,0.3)]">
-                        <Plus size={20} />
-                        Add New Course
-                    </button>
+                    <Link to="/admin/courses/new">
+                        <button className="flex items-center gap-2 px-6 py-3 bg-[#00ff88] text-black font-bold rounded-xl hover:scale-105 transition-all shadow-[0_0_20px_rgba(0,255,136,0.3)]">
+                            <Plus size={20} />
+                            Add New Course
+                        </button>
+                    </Link>
                 </div>
 
                 {/* Filters */}

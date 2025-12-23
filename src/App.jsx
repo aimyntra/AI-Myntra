@@ -12,6 +12,7 @@ import CoursePlayer from './pages/CoursePlayer';
 import Certificates from './pages/Certificates';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminCourseManagement from './pages/admin/AdminCourseManagement';
+import NewCourse from './pages/admin/NewCourse';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/certificates" element={<Certificates />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/courses" element={<AdminCourseManagement />} />
+          <Route path="/admin/courses/new" element={<NewCourse />} />
         </Routes>
       </div>
     </Router>

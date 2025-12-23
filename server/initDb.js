@@ -55,6 +55,22 @@ const createTableQuery = `
     verification_code VARCHAR(50) UNIQUE,
     UNIQUE(clerk_user_id, course_slug)
   );
+
+  CREATE TABLE IF NOT EXISTS courses (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    slug VARCHAR(255) UNIQUE NOT NULL,
+    description TEXT,
+    price INTEGER NOT NULL,
+    original_price INTEGER,
+    image_url TEXT,
+    curriculum JSONB,
+    learning_outcomes JSONB,
+    target_audience JSONB,
+    level VARCHAR(50),
+    status VARCHAR(50) DEFAULT 'draft',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  );
 `;
 
 const initDb = async () => {
