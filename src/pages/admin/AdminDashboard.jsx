@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useUser } from '@clerk/clerk-react';
+import { Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
     TrendingUp,
@@ -10,11 +12,14 @@ import {
     Activity,
     Search,
     Filter,
-    MoreVertical
+    MoreVertical,
+    PlusCircle, // Added for Quick Actions
+    Settings // Added for Quick Actions
 } from 'lucide-react';
 import AdminLayout from '../../components/admin/AdminLayout';
 
 export default function AdminDashboard() {
+    const { user, isLoaded: isUserLoaded, isSignedIn } = useUser();
     const [stats, setStats] = useState({
         totalRevenue: 0,
         totalStudents: 0,
@@ -25,18 +30,25 @@ export default function AdminDashboard() {
     const [recentEnrollments, setRecentEnrollments] = useState([]);
     const [loading, setLoading] = useState(true);
 
+    const isAdmin = user?.primaryEmailAddress?.emailAddress === 'kumawatnaresh@gmail.com';
+
     useEffect(() => {
-        fetchAdminStats();
-    }, []);
+        if (isUserLoaded && isSignedIn && isAdmin) {
+            fetchAdminStats();
+        } else if (isUserLoaded && (!isSignedIn || !isAdmin)) {
+            setLoading(false);
+        }
+    }, [isUserLoaded, isSignedIn, isAdmin]);
 
     const fetchAdminStats = async () => {
         try {
             const response = await fetch('/api/admin/stats');
+            if (!response.ok) throw new Error('Failed to fetch');
             const data = await response.json();
 
             if (data.success) {
-                setStats(data.stats);
-                setRecentEnrollments(data.recentEnrollments);
+                setStats(data.stats || stats);
+                setRecentEnrollments(data.recentEnrollments || []);
             }
         } catch (error) {
             console.error('Error fetching admin stats:', error);
@@ -44,6 +56,18 @@ export default function AdminDashboard() {
             setLoading(false);
         }
     };
+
+    if (!isUserLoaded || (loading && isSignedIn && isAdmin)) {
+        return (
+            <div className="min-h-screen bg-[#050507] flex items-center justify-center">
+                <div className="w-12 h-12 border-4 border-[#00ff88] border-t-transparent rounded-full animate-spin"></div>
+            </div>
+        );
+    }
+
+    if (!isSignedIn || !isAdmin) {
+        return <Navigate to="/" replace />;
+    }
 
     const statCards = [
         { label: 'Total Revenue', value: `₹${stats.totalRevenue.toLocaleString()}`, icon: IndianRupee, change: '+12.5%', isUp: true },
