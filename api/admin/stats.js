@@ -30,7 +30,10 @@ export default async function handler(req, res) {
 
         // 2. Recent Enrollments
         const recentQuery = `
-            SELECT e.*, l.full_name, l.email 
+            SELECT 
+                e.*, 
+                COALESCE(l.full_name, 'Anonymous Learner') as full_name, 
+                COALESCE(l.email, e.clerk_user_id) as email
             FROM enrollments e
             LEFT JOIN leads l ON e.clerk_user_id = l.clerk_user_id
             ORDER BY e.enrolled_at DESC

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
     Plus,
@@ -13,34 +13,71 @@ import {
     Users,
     ArrowLeft
 } from 'lucide-react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import AdminLayout from '../../components/admin/AdminLayout';
+import { courses } from '../../data/courses';
 
 export default function NewCourse() {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    const templateSlug = searchParams.get('template');
+
     const [step, setStep] = useState(1);
     const [loading, setLoading] = useState(false);
-    const [formData, setFormData] = useState({
-        title: '',
-        slug: '',
-        description: '',
-        price: '',
-        original_price: '',
-        image_url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995',
-        level: 'Beginner',
-        status: 'draft',
-        learning_outcomes: [''],
-        target_audience: [''],
-        curriculum: [
-            {
-                week: 1,
-                title: 'Introduction',
-                days: [
-                    { title: 'Getting Started', video_url: '', content: '' }
-                ]
+
+    // Initial state logic
+    const getInitialData = () => {
+        if (templateSlug) {
+            const template = courses.find(c => c.slug === templateSlug);
+            if (template) {
+                return {
+                    title: `Copy of ${template.title}`,
+                    slug: `${template.slug}-copy`,
+                    description: template.description || '',
+                    price: template.price || '',
+                    original_price: template.originalPrice || '',
+                    image_url: template.heroImage || 'https://images.unsplash.com/photo-1677442136019-21780ecad995',
+                    level: template.level || 'Beginner',
+                    status: 'draft',
+                    learning_outcomes: template.learningOutcomes || [''],
+                    target_audience: template.targetAudience || [''],
+                    curriculum: template.curriculum || [
+                        {
+                            week: 1,
+                            title: 'Introduction',
+                            days: [{ title: 'Getting Started', video_url: '', content: '' }]
+                        }
+                    ]
+                };
             }
-        ]
-    });
+        }
+        return {
+            title: '',
+            slug: '',
+            description: '',
+            price: '',
+            original_price: '',
+            image_url: 'https://images.unsplash.com/photo-1677442136019-21780ecad995',
+            level: 'Beginner',
+            status: 'draft',
+            learning_outcomes: [''],
+            target_audience: [''],
+            curriculum: [
+                {
+                    week: 1,
+                    title: 'Introduction',
+                    days: [{ title: 'Getting Started', video_url: '', content: '' }]
+                }
+            ]
+        };
+    };
+
+    const [formData, setFormData] = useState(getInitialData());
+
+    useEffect(() => {
+        // If template changes, reset form
+        setFormData(getInitialData());
+    }, [templateSlug]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;

@@ -20,8 +20,8 @@ export default async function handler(req, res) {
                 e.course_slug,
                 e.enrolled_at,
                 e.payment_id,
-                l.full_name,
-                l.email,
+                COALESCE(l.full_name, 'Anonymous Learner') as full_name,
+                COALESCE(l.email, e.clerk_user_id) as email,
                 l.phone,
                 (SELECT COUNT(*) FROM course_progress cp WHERE cp.clerk_user_id = e.clerk_user_id AND cp.course_slug = e.course_slug AND cp.completed = TRUE) as completed_lessons
             FROM enrollments e

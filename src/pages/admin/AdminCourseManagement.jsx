@@ -130,11 +130,11 @@ export default function AdminCourseManagement() {
 
                                 <div className="flex items-center gap-2 pt-2">
                                     <Link
-                                        to={course.isDb ? `/admin/courses/edit/${course.slug}` : '#'}
-                                        className={`flex-1 flex items-center justify-center gap-2 p-2.5 border border-white/10 rounded-xl text-sm font-semibold transition-colors ${course.isDb ? 'bg-white/5 hover:bg-white/10' : 'bg-white/5 opacity-50 cursor-not-allowed'}`}
+                                        to={course.isDb ? `/admin/courses/edit/${course.slug}` : `/admin/courses/new?template=${course.slug}`}
+                                        className="flex-1 flex items-center justify-center gap-2 p-2.5 bg-white/5 border border-white/10 rounded-xl text-sm font-semibold hover:bg-[#00ff88] hover:text-black transition-all"
                                     >
                                         <Edit2 size={16} />
-                                        Edit
+                                        {course.isDb ? 'Edit' : 'Clone'}
                                     </Link>
                                     <Link
                                         to={`/programs/${course.slug}`}
